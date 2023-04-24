@@ -1,0 +1,10 @@
+.LoginPage{
+  display: flex;
+  flex-direction: column;
+  width: 160px;
+
+
+}
+#btnlogin{
+  background: deepskyblue;
+}
