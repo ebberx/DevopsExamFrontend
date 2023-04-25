@@ -13,7 +13,7 @@ function RegisterPage() {
             </form>
 
 
-            <button class="btnclass" id="btncreate">Create</button>
+            <button class="btnclass" id="btnregister">Register</button>
 
 
 

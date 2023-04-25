@@ -7,7 +7,7 @@ function LoginPage() {
 
         <form>
             <input type="text" placeholder="Username"></input>
-            <input type="text" placeholder="Password"></input>
+            <input type="password" placeholder="Password"></input>
         </form>
         <button class="btnclass" id="btncreate">Create</button>
         <button className="btnclass" id="btnlogin">Login</button>
