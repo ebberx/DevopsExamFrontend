@@ -15,7 +15,7 @@ function LoginPage() {
         <div className="LoginPage">
 
             <form>
-                <input type="text" placeholder="Username"></input>
+                <input type="text" placeholder="Email"></input>
                 <input type="password" placeholder="Password"></input>
             </form>
 
