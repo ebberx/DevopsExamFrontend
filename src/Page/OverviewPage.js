@@ -1,6 +1,6 @@
 import './OverviewPage.css';
 
-import Navigation from "./Navigation.js";
+import Navigation from "../Navigation.js";
 import {Link} from "react-router-dom";
 
 function OverviewPage() {

@@ -1,7 +1,7 @@
 // App.js
 import React from 'react';
-import AppRoutes from './Routes.js';
-import background from "./img/background.jpeg";
+import AppRoutes from '../Routes.js';
+import background from "../img/background.jpeg";
 
 const App = () => {
     return (

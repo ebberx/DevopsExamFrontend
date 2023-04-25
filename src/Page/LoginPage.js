@@ -1,5 +1,5 @@
 import './LoginPage.css';
-import AppRoutes from './Routes.js';
+import AppRoutes from '../Routes.js';
 import {Link} from "react-router-dom";
 
 function LoginPage() {

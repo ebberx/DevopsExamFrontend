@@ -1,9 +1,9 @@
 import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import LoginPage from './LoginPage.js';
-import RegisterPage from './RegisterPage.js';
-import OverviewPage from './OverviewPage.js';
-import CreateCollectionPage from './CreateCollectionPage.js';
+import LoginPage from './Page/LoginPage.js';
+import RegisterPage from './Page/RegisterPage.js';
+import OverviewPage from './Page/OverviewPage.js';
+import CreateCollectionPage from './Page/CreateCollectionPage.js';
 
 const AppRoutes = () => {
     return (

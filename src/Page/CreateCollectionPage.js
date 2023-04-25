@@ -1,11 +1,12 @@
-//import './MenuPage.css';
+import './CreateCollectionPage.css';
 
-import Navigation from "./Navigation.js";
+import Navigation from "../Navigation.js";
 
 function CreateCollectionPage() {
     return (
         <div className="CreateCollectionPage">
             <Navigation />
+            <a>asd</a>
         </div>
     );
 }

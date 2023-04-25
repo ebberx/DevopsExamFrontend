@@ -1,6 +1,6 @@
 import './RegisterPage.css';
 import {Navigate} from "react-router-dom";
-import Navigation from "./Navigation.js";
+import Navigation from "../Navigation.js";
 
 function RegisterPage() {
     return (
