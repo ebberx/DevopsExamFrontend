@@ -1,5 +1,6 @@
 import './LoginPage.css';
 import AppRoutes from './Routes.js';
+import {Link} from "react-router-dom";
 
 function LoginPage() {
   return (
@@ -9,8 +10,11 @@ function LoginPage() {
             <input type="text" placeholder="Username"></input>
             <input type="password" placeholder="Password"></input>
         </form>
-        <button class="btnclass" id="btncreate">Create</button>
-        <button className="btnclass" id="btnlogin">Login</button>
+        <Link to="/register">
+            <button id="btncreate">Create</button>
+        </Link>
+
+        <button id="btnlogin">Login</button>
     </div>
   );
 }
