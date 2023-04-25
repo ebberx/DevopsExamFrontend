@@ -12,17 +12,15 @@ function OverviewPage() {
         <div className="OverviewPage">
             <Navigation />
 
-            <input id="searchbar" onChange={dosearch} type="text" placeholder="Search"></input>
+            <div id="overviewBody">
+                <input id="searchbar" onChange={dosearch} type="text" placeholder="Search"></input>
 
-            <Link to="/overview/create">
-                <button id="btnaddcollection">Add Collection</button>
-            </Link>
+                <Link to="/overview/create">
+                    <button id="btnAddCollection">Add Collection</button>
+                </Link>
+            </div>
 
         </div>
     );
-
-
 }
-
-
 export default OverviewPage;

@@ -3,6 +3,11 @@ import {Link, Navigate} from "react-router-dom";
 import Navigation from "../Navigation.js";
 
 function RegisterPage() {
+
+    const RegisterUser = () => {
+
+    };
+
     return (
         <div className="RegisterPage">
             <form>
@@ -12,7 +17,7 @@ function RegisterPage() {
                 <input type="text" placeholder="Email"></input>
             </form>
 
-            <button id="btnRegister">Register</button>
+            <button id="btnRegister" onClick={RegisterUser}>Register</button>
             <Link to="/">
                 <button id="backToLogin">Go back to Login</button>
             </Link>
