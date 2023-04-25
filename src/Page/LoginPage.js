@@ -1,22 +1,32 @@
 import './LoginPage.css';
 import AppRoutes from '../Routes.js';
-import {Link} from "react-router-dom";
+import {Link, Navigate} from "react-router-dom";
+import React from "react";
 
 function LoginPage() {
-  return (
-    <div className="LoginPage">
 
-        <form>
-            <input type="text" placeholder="Username"></input>
-            <input type="password" placeholder="Password"></input>
-        </form>
-        <Link to="/register">
-            <button id="btncreate">Create</button>
-        </Link>
+    const loggedIn = localStorage.getItem('auth_token');
 
-        <button id="btnlogin">Login</button>
-    </div>
-  );
+    if(loggedIn) {
+        return <Navigate to="/overview" replace></Navigate>
+    }
+
+    return (
+        <div className="LoginPage">
+
+            <form>
+                <input type="text" placeholder="Username"></input>
+                <input type="password" placeholder="Password"></input>
+            </form>
+
+            <a>
+                <button id="btnLogin">Login</button>
+            </a>
+            <hr/>
+            Don't have an account?
+            <a href="/register">Register here</a>
+        </div>
+    );
 }
 
 export default LoginPage;

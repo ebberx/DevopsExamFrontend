@@ -7,9 +7,6 @@ const Navigation = () => {
         <nav>
             <ul>
                 <li>
-                    <Link to="/register">Register</Link>
-                </li>
-                <li>
                     <Link to="/overview">Overview</Link>
                 </li>
                 <li>
