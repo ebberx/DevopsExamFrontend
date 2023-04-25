@@ -1,4 +1,4 @@
-.RegisterPage{
+.RegisterPage {
     display: flex;
     flex-direction: column;
 
@@ -13,7 +13,11 @@
     text-align: center;
 }
 
-#btnregister{
+#btnRegister {
     margin-top: 10px;
     background: deepskyblue;
+}
+
+#backToLogin {
+    width: 80%;
 }

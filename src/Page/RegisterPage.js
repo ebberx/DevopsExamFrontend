@@ -1,20 +1,21 @@
 import './RegisterPage.css';
-import {Navigate} from "react-router-dom";
+import {Link, Navigate} from "react-router-dom";
 import Navigation from "../Navigation.js";
 
 function RegisterPage() {
     return (
         <div className="RegisterPage">
-
-
             <form>
                 <input type="text" placeholder="Nickname"></input>
                 <input type="text" placeholder="Username"></input>
                 <input type="text" placeholder="Password"></input>
                 <input type="text" placeholder="Email"></input>
             </form>
-            <button id="btnregister">Register</button>
 
+            <button id="btnRegister">Register</button>
+            <Link to="/">
+                <button id="backToLogin">Go back to Login</button>
+            </Link>
         </div>
     );
 }
