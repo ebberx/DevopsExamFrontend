@@ -15,8 +15,25 @@ function RegisterPage() {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ fldUsername: username, fldPassword: password, fldEmail: email })
         };
-        const response = await fetch('http://10.176.129.17:5001/api/User/CreateNewUser', requestOptions);
-        console.log(response);
+        fetch('http://10.176.129.17:5001/api/User/CreateNewUser', requestOptions)
+            .then(response=> response.text())
+            .then(data => {
+                // Debug
+                console.log(data);
+
+                if(data == "NewUser Posted") {
+                    alert("Successfully registered!");
+                    window.location.href = "/";
+                }
+                else if(data == "Email ID already in DB") {
+                    alert("Email already in use, use another email address, or login to continue.");
+                }
+                else if(data == "Invalid email") {
+                    alert("Please enter a valid email.");
+                    setEmail("");
+                }
+            })
+
     };
 
     return (
