@@ -1,0 +1,17 @@
+#group{
+    display: flex;
+    align-content: center;
+    flex-wrap: wrap;
+
+
+}
+
+.collection{
+    background-color: bisque;
+    margin: auto;
+    margin-top: 1%;
+    width: 400px;
+    height: 100px;
+    text-align: center;
+
+}
