@@ -1,5 +1,5 @@
 import './OverviewPage.css';
-
+import UserCollection from "../Component/UserCollection.js";
 import Navigation from "../Navigation.js";
 import {Link} from "react-router-dom";
 
@@ -10,9 +10,11 @@ function OverviewPage() {
     };
     return (
         <div className="OverviewPage">
-            <Navigation />
+
+
 
             <div id="overviewBody">
+                <Navigation />
                 <input id="searchbar" onChange={dosearch} type="text" placeholder="Search"></input>
 
                 <Link to="/overview/create">
@@ -20,7 +22,10 @@ function OverviewPage() {
                 </Link>
             </div>
 
+            <UserCollection/>
         </div>
+
+
     );
 }
 export default OverviewPage;

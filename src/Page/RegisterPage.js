@@ -40,7 +40,7 @@ function RegisterPage() {
         <div className="RegisterPage">
             <form>
                 <input type="text" value={username} onChange={(event) => setUsername(event.target.value)} placeholder="Username"></input>
-                <input type="text" value={password} onChange={(event) => setPassword(event.target.value)} placeholder="Password"></input>
+                <input type="password" value={password} onChange={(event) => setPassword(event.target.value)} placeholder="Password"></input>
                 <input type="text" value={email} onChange={(event) => setEmail(event.target.value)} placeholder="Email"></input>
             </form>
 
