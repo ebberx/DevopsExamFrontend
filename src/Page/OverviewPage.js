@@ -6,8 +6,14 @@ import Contextmenutest from "../Component/Contextmenutest.js";
 
 function OverviewPage() {
     const selectElement = document.querySelector("#searchbar");
+    const elements = document.getElementsByClassName("collection");
     const dosearch = (event) => {
         console.log(event.target.value);
+        for (let value in elements){
+            console.log(value)
+
+        }
+
 
     };
     return (
