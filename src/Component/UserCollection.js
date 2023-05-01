@@ -2,13 +2,13 @@ import './UserCollection.css';
 
 
 function UserCollection() {
-    const test = ["1", "2", "3", "4","1", "2", "3", "4"];
+    const CollectionArray = ["1", "2", "3", "4","1", "2", "3", "4"];
 
 
     return(
-    <div style={{width: "100%", height: "400px"}}>
+    <div style={{width: "100%", height: "400px"}} onContextMenu={event => {event.preventDefault(); console.log("rightu clicker")}}>
         <div id = "group">
-        {test.map((map) => (
+        {CollectionArray.map((map) => (
             <div class = "collection">
                 {map}
             </div>
