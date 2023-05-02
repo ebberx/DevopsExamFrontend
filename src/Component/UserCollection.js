@@ -1,5 +1,7 @@
 import './UserCollection.css';
 import { useState } from 'react';
+import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 
 function UserCollection() {
     const CollectionArrayInit = [
@@ -20,14 +22,15 @@ function UserCollection() {
             "fldIsPrivate":null
         }];
     const [collectionArray, setCollectionArray] = useState(CollectionArrayInit);
+    const location = useLocation();
 
-    window.onload = async () => {
+    useEffect(() => {
+        console.log("loaded page");
         const getCollections = {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({flduserId: 1, numberRandomCollections: 8})
-        };
-
+        }
 
         fetch('http://10.176.129.17:5001/api/Collections/GetRandomSetOfCollections', getCollections)
             .then(response => response.json())
@@ -38,8 +41,13 @@ function UserCollection() {
                 setCollectionArray(data);
 
             });
-        console.log("aa");
-    };
+
+
+    }, [location]);
+
+
+
+
 
 
     return(
@@ -48,6 +56,8 @@ function UserCollection() {
         {Array.isArray(collectionArray) && collectionArray.map((map, index) => (
             <div class="collection">
                 {index} {map.fldCollectionName}
+                {map.fldCollectionDescription}
+                {map.fldCollectionThumbnail}
             </div>
         ))}
         </div>
