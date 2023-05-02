@@ -51,13 +51,14 @@ function UserCollection() {
 
 
     return(
-    <div style={{width: "100%", height: "400px"}} onContextMenu={event => {event.preventDefault(); console.log("rightu clicker")}}>
+    <div style={{width: "100%"}}>
         <div id = "group">
         {Array.isArray(collectionArray) && collectionArray.map((map, index) => (
             <div class="collection">
-                {index} {map.fldCollectionName}
-                {map.fldCollectionDescription}
-                {map.fldCollectionThumbnail}
+                {map.fldCollectionName}
+                    <br/>
+                {map.fldCollectionThumbnail != "" ? (<img src ={map.fldCollectionThumbnail} style={{width: "100%"}}></img>) : ("no image attached")}
+
             </div>
         ))}
         </div>
