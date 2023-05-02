@@ -1,8 +1,25 @@
 import './UserCollection.css';
-
+import { useState } from 'react';
 
 function UserCollection() {
-    let CollectionArray = ["1", "2", "3", "4","1", "2", "3", "4"];
+    const CollectionArrayInit = [
+        {
+            "fldCollectionId":5,
+            "fldUserId":1,
+            "fldCollectionName":"123",
+            "fldCollectionDescription":"123",
+            "fldCollectionThumbnail":"",
+            "fldIsPrivate":null
+        },
+        {
+            "fldCollectionId":6,
+            "fldUserId":1,
+            "fldCollectionName":"FIX",
+            "fldCollectionDescription":"THE",
+            "fldCollectionThumbnail":"",
+            "fldIsPrivate":null
+        }];
+    const [collectionArray, setCollectionArray] = useState(CollectionArrayInit);
 
     window.onload = async () => {
         const getCollections = {
@@ -13,11 +30,13 @@ function UserCollection() {
 
 
         fetch('http://10.176.129.17:5001/api/Collections/GetRandomSetOfCollections', getCollections)
-            .then(response => response.text())
+            .then(response => response.json())
             .then(data => {
                 // Debug
                 console.log(data);
-                CollectionArray = data;
+                //CollectionArray = data;
+                setCollectionArray(data);
+
             });
         console.log("aa");
     };
@@ -26,9 +45,9 @@ function UserCollection() {
     return(
     <div style={{width: "100%", height: "400px"}} onContextMenu={event => {event.preventDefault(); console.log("rightu clicker")}}>
         <div id = "group">
-        {CollectionArray.map((map) => (
-            <div class = "collection">
-                {map}
+        {Array.isArray(collectionArray) && collectionArray.map((map, index) => (
+            <div class="collection">
+                {index} {map.fldCollectionName}
             </div>
         ))}
         </div>
