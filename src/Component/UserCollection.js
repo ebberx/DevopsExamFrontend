@@ -28,7 +28,10 @@ function UserCollection() {
         const userID = Number(localStorage.getItem("UserID"));
         const getCollections = {
             method: 'POST',
-            headers: {'Content-Type': 'application/json'},
+            headers: { 'Content-Type': 'application/json',
+                "Access-Control-Allow-Headers": "*",
+                "Access-Control-Allow-Origin": "*",
+                "Access-Control-Allow-Methods": "*" },
             body: JSON.stringify({flduserId: userID, numberRandomCollections: 8})
         }
 

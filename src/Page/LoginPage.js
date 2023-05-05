@@ -16,7 +16,10 @@ function LoginPage() {
     const Login = async () => {
         const requestOptions = {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
+            headers: { 'Content-Type': 'application/json',
+                "Access-Control-Allow-Headers": "*",
+                "Access-Control-Allow-Origin": "*",
+                "Access-Control-Allow-Methods": "*" },
             body: JSON.stringify({ fldEmail: email, fldPassword: password })
         };
 

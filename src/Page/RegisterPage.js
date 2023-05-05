@@ -12,7 +12,10 @@ function RegisterPage() {
     const RegisterUser = async () => {
         const requestOptions = {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
+            headers: { 'Content-Type': 'application/json',
+                "Access-Control-Allow-Headers": "*",
+                "Access-Control-Allow-Origin": "*",
+                "Access-Control-Allow-Methods": "*" },
             body: JSON.stringify({ fldUsername: username, fldPassword: password, fldEmail: email })
         };
         fetch('http://10.176.129.17:5001/api/User/CreateNewUser', requestOptions)

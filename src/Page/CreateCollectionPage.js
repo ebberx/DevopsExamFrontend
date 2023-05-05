@@ -14,7 +14,10 @@ function CreateCollectionPage() {
         const userID = Number(localStorage.getItem("UserID"));
         const getData = {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
+            headers: { 'Content-Type': 'application/json',
+                        "Access-Control-Allow-Headers": "*",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "*" },
             body: JSON.stringify({ flduserId: userID, fldCollectionName: collectionname, fldCollectionDescription: description, fldCollectionThumbnail: imageid })
         };
 
