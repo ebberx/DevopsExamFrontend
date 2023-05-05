@@ -1,6 +1,5 @@
 import './LoginPage.css';
-import AppRoutes from '../Routes.js';
-import {Link, Navigate} from "react-router-dom";
+import {Navigate} from "react-router-dom";
 import React, {useState} from "react";
 
 function LoginPage() {
@@ -22,26 +21,32 @@ function LoginPage() {
         };
 
         fetch('http://10.176.129.17:5001/api/User/Login', requestOptions)
-            .then(response=>response.text())
+            .then(response => response.text())
             .then(data => {
-               // Debug
-               console.log(data);
+                console.log(data);
 
-                if(data == "Successfully Logged in") {
+                // Spot errors early
+                if(data === "Invalid credentials entered") {
+                    alert("Invalid email and password combination. Did you make a spelling mistake?");
+                    return;
+                }
+
+                try {
+                    // Parse data
+                    const json = JSON.parse(data);
+
+                    // Store data
+                    localStorage.setItem("UserID", json.fldUserId);
+                    localStorage.setItem("UserEmail", json.fldEmail);
+                    localStorage.setItem("UserName", json.fldUsername);
+
+                    // Success!
                     alert("Successfully logged in!");
-                    localStorage.setItem("auth_token", true);
                     window.location.href = "/overview";
                 }
-                else if(data == "Invalid credentials entered") {
-                    alert("Invalid email and password combination. Did you make a spelling mistake?");
-                }
+                catch { throw Error(data) }
             });
-
-
-        //const response = await fetch('http://10.176.129.17:5001/api/User/Login', requestOptions);
-        //console.log(response);
     };
-
 
     return (
         <div className="LoginPage">
@@ -51,7 +56,7 @@ function LoginPage() {
                 <input type="password" value={password} onChange={(event) => setPassword(event.target.value)} placeholder="Password"></input>
             </form>
 
-            <a>
+            <a href="/#">
                 <button id="btnLogin" onClick={Login}>Login</button>
             </a>
             <hr/>

@@ -11,15 +11,11 @@ function OverviewPage() {
         console.log(event.target.value);
         for (let value in elements){
             console.log(value)
-
         }
-
-
     };
     return (
         <div className="OverviewPage">
             <Contextmenutest/>
-
 
             <div id="overviewBody">
                 <Navigation />
@@ -31,11 +27,7 @@ function OverviewPage() {
             </div>
 
             <UserCollection/>
-
-
         </div>
-
-
     );
 }
 export default OverviewPage;

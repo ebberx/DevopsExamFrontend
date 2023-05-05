@@ -25,11 +25,11 @@ function UserCollection() {
     const location = useLocation();
 
     useEffect(() => {
-        console.log("loaded page");
+        const userID = Number(localStorage.getItem("UserID"));
         const getCollections = {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({flduserId: 1, numberRandomCollections: 8})
+            body: JSON.stringify({flduserId: userID, numberRandomCollections: 8})
         }
 
         fetch('http://10.176.129.17:5001/api/Collections/GetRandomSetOfCollections', getCollections)
@@ -39,16 +39,8 @@ function UserCollection() {
                 console.log(data);
                 //CollectionArray = data;
                 setCollectionArray(data);
-
             });
-
-
     }, [location]);
-
-
-
-
-
 
     return(
     <div style={{width: "100%"}}>
@@ -65,19 +57,11 @@ function UserCollection() {
         <div>
             <div>
                 <div>
-
                 </div>
-
             </div>
-
         </div>
-
     </div>
-
-
     );
-
-
 }
 
 export default UserCollection;

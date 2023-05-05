@@ -33,7 +33,6 @@ function RegisterPage() {
                     setEmail("");
                 }
             })
-
     };
 
     return (

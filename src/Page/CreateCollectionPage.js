@@ -10,12 +10,12 @@ function CreateCollectionPage() {
     const [description, setdescription] = useState("");
     const [imageid, setimageid] = useState("");
 
-
     const CreateCollection = async () => {
+        const userID = Number(localStorage.getItem("UserID"));
         const getData = {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ flduserId: 1, fldCollectionName: collectionname, fldCollectionDescription: description, fldCollectionThumbnail: imageid })
+            body: JSON.stringify({ flduserId: userID, fldCollectionName: collectionname, fldCollectionDescription: description, fldCollectionThumbnail: imageid })
         };
 
         fetch('http://10.176.129.17:5001/api/Collections/CreateCollection', getData)
@@ -23,11 +23,8 @@ function CreateCollectionPage() {
             .then(data => {
                 // Debug
                 console.log(data);
-
             });
     }
-
-
 
     return (
         <div className="CreateCollectionPage">
@@ -38,10 +35,7 @@ function CreateCollectionPage() {
             <input type="text" placeholder="Image url" value={imageid} onChange={(event) => setimageid(event.target.value)}/>
 
             <button id = "btncreate" onClick={CreateCollection}>Create</button>
-
-
         </div>
     );
 }
-
 export default CreateCollectionPage;
