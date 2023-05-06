@@ -41,9 +41,9 @@ function RegisterPage() {
     return (
         <div className="RegisterPage">
             <form>
-                <input type="text" value={username} onChange={(event) => setUsername(event.target.value)} placeholder="Username"></input>
-                <input type="password" value={password} onChange={(event) => setPassword(event.target.value)} placeholder="Password"></input>
-                <input type="text" value={email} onChange={(event) => setEmail(event.target.value)} placeholder="Email"></input>
+                <input id = "username" type="text" value={username} onChange={(event) => setUsername(event.target.value)} placeholder="Username"></input>
+                <input id = "password" type="password" value={password} onChange={(event) => setPassword(event.target.value)} placeholder="Password"></input>
+                <input id = "email" type="text" value={email} onChange={(event) => setEmail(event.target.value)} placeholder="Email"></input>
             </form>
 
             <button id="btnRegister" onClick={RegisterUser}>Register</button>

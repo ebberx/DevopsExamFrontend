@@ -55,8 +55,8 @@ function LoginPage() {
         <div className="LoginPage">
 
             <form>
-                <input type="text" value={email} onChange={(event) => setEmail(event.target.value)} placeholder="Email"></input>
-                <input type="password" value={password} onChange={(event) => setPassword(event.target.value)} placeholder="Password"></input>
+                <input id="username" type="text" value={email} onChange={(event) => setEmail(event.target.value)} placeholder="Email"></input>
+                <input id="password" type="password" value={password} onChange={(event) => setPassword(event.target.value)} placeholder="Password"></input>
             </form>
 
             <a href="/#">
