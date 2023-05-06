@@ -32,10 +32,10 @@ function UserCollection() {
                 "Access-Control-Allow-Headers": "*",
                 "Access-Control-Allow-Origin": "*",
                 "Access-Control-Allow-Methods": "*" },
-            body: JSON.stringify({flduserId: userID, numberRandomCollections: 8})
+            body: JSON.stringify({flduserId: userID, numberRandomCollections: 32})
         }
 
-        fetch('http://10.176.129.17:5001/api/Collections/GetRandomSetOfCollections', getCollections)
+        fetch('http://10.176.88.54:5001/api/Collections/GetRandomSetOfCollections', getCollections)
             .then(response => response.json())
             .then(data => {
                 // Debug
@@ -52,7 +52,7 @@ function UserCollection() {
             <div class="collection">
                 {map.fldCollectionName}
                     <br/>
-                {map.fldCollectionThumbnail != "" ? (<img src ={map.fldCollectionThumbnail} style={{width: "100%"}}></img>) : ("no image attached")}
+                {map.fldCollectionThumbnail !== "" ? (<img src={map.fldCollectionThumbnail} alt="" style={{width: "100%"}}></img>) : ("no image attached")}
 
             </div>
         ))}

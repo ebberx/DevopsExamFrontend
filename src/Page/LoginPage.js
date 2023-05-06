@@ -8,7 +8,7 @@ function LoginPage() {
     const [password, setPassword] = useState('');
 
     // Redirect check if logged in
-    const loggedIn = localStorage.getItem('auth_token');
+    const loggedIn = localStorage.getItem('UserID');
     if(loggedIn) {
         return <Navigate to="/overview" replace></Navigate>
     }
@@ -23,7 +23,7 @@ function LoginPage() {
             body: JSON.stringify({ fldEmail: email, fldPassword: password })
         };
 
-        fetch('http://10.176.129.17:5001/api/User/Login', requestOptions)
+        fetch('http://10.176.88.54:5001/api/User/Login', requestOptions)
             .then(response => response.text())
             .then(data => {
                 console.log(data);

@@ -1,6 +1,5 @@
 import './RegisterPage.css';
-import {Link, Navigate} from "react-router-dom";
-import Navigation from "../Navigation.js";
+import {Link} from "react-router-dom";
 import React, { useState } from 'react';
 
 function RegisterPage() {
@@ -18,20 +17,20 @@ function RegisterPage() {
                 "Access-Control-Allow-Methods": "*" },
             body: JSON.stringify({ fldUsername: username, fldPassword: password, fldEmail: email })
         };
-        fetch('http://10.176.129.17:5001/api/User/CreateNewUser', requestOptions)
+        fetch('http://10.176.88.54:5001/api/User/CreateNewUser', requestOptions)
             .then(response=> response.text())
             .then(data => {
                 // Debug
                 console.log(data);
 
-                if(data == "NewUser Posted") {
+                if(data === "NewUser Posted") {
                     alert("Successfully registered!");
                     window.location.href = "/";
                 }
-                else if(data == "Email ID already in DB") {
+                else if(data === "Email ID already in DB") {
                     alert("Email already in use, use another email address, or login to continue.");
                 }
-                else if(data == "Invalid email") {
+                else if(data === "Invalid email") {
                     alert("Please enter a valid email.");
                     setEmail("");
                 }
