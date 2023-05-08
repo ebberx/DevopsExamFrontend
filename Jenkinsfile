@@ -33,7 +33,7 @@ pipeline {
         stage("deploy") {
             steps {
                 catchError(buildResult: 'SUCCESS', stageResult: 'SUCCESS') {
-            		sh "docker kill $(docker ps -qf expose=3000)"
+            		sh "docker kill \$(docker ps -qf expose=3000)"
             	}
                 sh "docker run --rm -p 3000:3000 -d ckfrontend"
             }
