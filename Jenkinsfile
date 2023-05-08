@@ -8,7 +8,7 @@ pipeline {
 	stages {
 		stage("build") {
 			steps {
-                sh "docker build . -t ckfrontend"
+			    sh "docker build . -t ckfrontend"
 			}
 		}
 
