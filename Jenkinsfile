@@ -8,8 +8,8 @@ pipeline {
 	stages {
 		stage("build") {
 			steps {
-
-				echo "build started"
+                sh "docker build . -t ckfrontend"
+				sh "docker run -p 3000:3000 -d ckfrontend"
 			}
 		}
 
