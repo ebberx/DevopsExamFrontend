@@ -32,10 +32,10 @@ function UserCollection() {
                 "Access-Control-Allow-Headers": "*",
                 "Access-Control-Allow-Origin": "*",
                 "Access-Control-Allow-Methods": "*" },
-            body: JSON.stringify({flduserId: userID, numberRandomCollections: 8})
+            body: JSON.stringify({flduserId: userID, numberRandomCollections: 32})
         }
 
-        fetch('http://10.176.129.17:5001/api/Collections/GetRandomSetOfCollections', getCollections)
+        fetch('http://10.176.88.54:5001/api/Collections/GetRandomSetOfCollections', getCollections)
             .then(response => response.json())
             .then(data => {
                 // Debug
@@ -47,21 +47,15 @@ function UserCollection() {
 
     return(
     <div style={{width: "100%"}}>
-        <div id = "group">
-        {Array.isArray(collectionArray) && collectionArray.map((map, index) => (
-            <div class="collection">
-                {map.fldCollectionName}
+        <div id="group">
+        {Array.isArray(collectionArray) && collectionArray.map((element, index) => (
+            <div key={index} className="collection">
+                {element.fldCollectionName}
                     <br/>
-                {map.fldCollectionThumbnail != "" ? (<img src ={map.fldCollectionThumbnail} style={{width: "100%"}}></img>) : ("no image attached")}
+                {element.fldCollectionThumbnail !== "" ? (<img src={element.fldCollectionThumbnail} alt="" style={{width: "100%"}}></img>) : ("no image attached")}
 
             </div>
         ))}
-        </div>
-        <div>
-            <div>
-                <div>
-                </div>
-            </div>
         </div>
     </div>
     );

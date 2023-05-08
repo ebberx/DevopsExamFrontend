@@ -1,9 +1,6 @@
-    import './CreateCollectionPage.css';
-
+import './CreateCollectionPage.css';
 import Navigation from "../Navigation.js";
-    import {useState} from "react";
-    import UserCollection from "../Component/UserCollection.js";
-    import Contextmenutest from "../Component/Contextmenutest.js";
+import {useState} from "react";
 
 function CreateCollectionPage() {
     const [collectionname, setcollectionname] = useState("");
@@ -21,7 +18,7 @@ function CreateCollectionPage() {
             body: JSON.stringify({ flduserId: userID, fldCollectionName: collectionname, fldCollectionDescription: description, fldCollectionThumbnail: imageid })
         };
 
-        fetch('http://10.176.129.17:5001/api/Collections/CreateCollection', getData)
+        fetch('http://10.176.88.54:5001/api/Collections/CreateCollection', getData)
             .then(response=>response.text())
             .then(data => {
                 // Debug
