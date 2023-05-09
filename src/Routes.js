@@ -14,9 +14,7 @@ const AppRoutes = () => {
                 <Route path="/register" element={<RegisterPage/>} />
                 <Route path="/overview" element={<OverviewPage/>} />
                 <Route path="/overview/create" element={<CreateCollectionPage/>} />
-                <Route path ="/collections/" element={<CollectionPage/>}>
-                    <Route path=":id" element={<CollectionPage/>}/>
-                </Route>
+                <Route path="/collections/:id" element={<CollectionPage/>}/>
             </Routes>
         </BrowserRouter>
     );
