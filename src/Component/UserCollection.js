@@ -46,17 +46,21 @@ function UserCollection() {
     }, [location]);
 
     return(
+
     <div style={{width: "100%"}}>
         <div id="group">
         {Array.isArray(collectionArray) && collectionArray.map((element, index) => (
-            <div key={index} className="collection">
+            <a href={"collections/" + element.fldCollectionId}  className="collection">
+            <div key={index} >
                 {element.fldCollectionName}
                     <br/>
                 {element.fldCollectionThumbnail !== "" ? (<img src={element.fldCollectionThumbnail} alt="" style={{width: "100%"}}></img>) : ("no image attached")}
-
             </div>
+            </a>
+
         ))}
         </div>
+
     </div>
     );
 }
