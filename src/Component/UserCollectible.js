@@ -119,23 +119,27 @@ function UserCollectible() {
         }];
     const [collectionArray, setCollectionArray] = useState(CollectionArrayInit);
     const {id} = useParams();
-    const GetCollectibles = async () => {
+    let attributeid = {id}.id
+
+
+    const location = useLocation();
+    useEffect(() => {
         const getData = {
             method: 'GET',
             headers: { 'Content-Type': 'application/json',
                 "Access-Control-Allow-Headers": "*",
                 "Access-Control-Allow-Origin": "*",
                 "Access-Control-Allow-Methods": "*" },
-            body: JSON.stringify({fldCollectionId: {id} })
         };
 
-        fetch('http://10.176.88.60:5001/api/AttributeValues/GetAllAttributeValuesForCollection', getData)
-            .then(response=>response.text())
+        fetch('http://10.176.88.60:5001/api/AttributeValues/GetAllAttributeValuesForCollection/' + attributeid, getData)
+            .then(response=>response.json())
             .then(data => {
                 // Debug
                 console.log(data);
+                setCollectionArray(data);
             });
-    }
+    }, [id, location]);
 
     return(
 
