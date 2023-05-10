@@ -18,7 +18,7 @@ function CreateCollectionPage() {
             body: JSON.stringify({ flduserId: userID, fldCollectionName: collectionname, fldCollectionDescription: description, fldCollectionThumbnail: imageid })
         };
 
-        fetch('http://10.176.88.60:5001/api/Collections/CreateCollection', getData)
+        fetch('https://collectionkeepers-backend.herokuapp.com/api/Collections/CreateCollection', getData)
             .then(response=>response.text())
             .then(data => {
                 // Debug

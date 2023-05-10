@@ -36,7 +36,7 @@ function UserCollection() {
             body: JSON.stringify({flduserId: userID, numberRandomCollections: 32})
         }
 
-        fetch('http://10.176.88.60:5001/api/Collections/GetRandomSetOfCollections', getCollections)
+        fetch('https://collectionkeepers-backend.herokuapp.com/api/Collections/GetRandomSetOfCollections', getCollections)
             .then(response => response.json())
             .then(data => {
                 // Debug
