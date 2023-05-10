@@ -1,9 +1,10 @@
 import './UserCollection.css';
 import { useState } from 'react';
 import { useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import {json, useLocation} from 'react-router-dom';
 
 function UserCollection() {
+
     const CollectionArrayInit = [
         {
             "fldCollectionId":5,
@@ -35,7 +36,7 @@ function UserCollection() {
             body: JSON.stringify({flduserId: userID, numberRandomCollections: 32})
         }
 
-        fetch('http://10.176.88.54:5001/api/Collections/GetRandomSetOfCollections', getCollections)
+        fetch('http://10.176.88.60:5001/api/Collections/GetRandomSetOfCollections', getCollections)
             .then(response => response.json())
             .then(data => {
                 // Debug
@@ -50,7 +51,8 @@ function UserCollection() {
     <div style={{width: "100%"}}>
         <div id="group">
         {Array.isArray(collectionArray) && collectionArray.map((element, index) => (
-            <a href={"collections/" + element.fldCollectionId}  className="collection">
+            <a href={"overview/collections/" + element.fldCollectionId}  className="collection">
+
             <div key={index} >
                 {element.fldCollectionName}
                     <br/>

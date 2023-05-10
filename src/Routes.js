@@ -4,7 +4,7 @@ import LoginPage from './Page/LoginPage.js';
 import RegisterPage from './Page/RegisterPage.js';
 import OverviewPage from './Page/OverviewPage.js';
 import CreateCollectionPage from './Page/CreateCollectionPage.js';
-import CollectionPage from './Page/CollectionPage.js'
+import AddCollectiblePage from './Page/AddCollectiblePage.js'
 
 const AppRoutes = () => {
     return (
@@ -14,7 +14,7 @@ const AppRoutes = () => {
                 <Route path="/register" element={<RegisterPage/>} />
                 <Route path="/overview" element={<OverviewPage/>} />
                 <Route path="/overview/create" element={<CreateCollectionPage/>} />
-                <Route path="/collections/:id" element={<CollectionPage/>}/>
+                <Route path="/overview/collections/:id" element={<AddCollectiblePage/>}/>
             </Routes>
         </BrowserRouter>
     );
