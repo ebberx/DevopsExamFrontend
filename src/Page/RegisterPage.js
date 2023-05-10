@@ -17,7 +17,7 @@ function RegisterPage() {
                 "Access-Control-Allow-Methods": "*" },
             body: JSON.stringify({ fldUsername: username, fldPassword: password, fldEmail: email })
         };
-        fetch('https://collectionkeepers-backend.herokuapp.com/api/User/CreateNewUser', requestOptions)
+        fetch('http://10.176.88.60:5001/api/User/CreateNewUser', requestOptions)
             .then(response=> response.text())
             .then(data => {
                 // Debug

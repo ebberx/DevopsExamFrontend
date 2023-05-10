@@ -129,7 +129,7 @@ function UserCollectible() {
             body: JSON.stringify({fldCollectionId: {id} })
         };
 
-        fetch('https://collectionkeepers-backend.herokuapp.com/api/AttributeValues/GetAllAttributeValuesForCollection', getData)
+        fetch('http://10.176.88.60:5001/api/AttributeValues/GetAllAttributeValuesForCollection', getData)
             .then(response=>response.text())
             .then(data => {
                 // Debug
