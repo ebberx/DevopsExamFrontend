@@ -1,7 +1,7 @@
 import { Selector } from 'testcafe';
 import {click} from "@testing-library/user-event/dist/click.js";
 
-fixture("testing the create collection page").page("http://localhost:3000/overview/create")
+fixture("testing the create collection page").page("http://localhost/overview/create")
 
 test("testing input fields", async t =>{
     const nameinput = await Selector('#collectionname')

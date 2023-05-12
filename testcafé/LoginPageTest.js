@@ -1,6 +1,6 @@
 import {ClientFunction, Selector} from 'testcafe';
 
-fixture("testing the login page").page("http://192.168.3.10:3000")
+fixture("testing the login page").page("http://localhost/")
 
 test("testing input fields", async t =>{
     const emailinput = await Selector('#username')
@@ -20,6 +20,6 @@ test("clicking the login button", async t =>{
         const url = await ClientFunction(() => window.location.href);
 
     await t
-        .expect(url()).eql('http://192.168.3.10:3000/overview')
+        .expect(url()).eql('http://localhost/overview')
 
 })

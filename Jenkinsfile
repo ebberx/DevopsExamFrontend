@@ -8,6 +8,7 @@ pipeline {
 	stages {
 		stage("build") {
 			steps {
+			    sh "docker build . -t ckfrontend"
 			    nodejs(nodeJSInstallationName: 'nodejs', configId: '8888f8d6-4952-46cb-ae62-2c518decba43') {
 			        sh 'npm install'
                     sh 'npm run build'
@@ -32,11 +33,12 @@ pipeline {
                        // optional, default is none
                        failingTarget: [methodCoverage: 0, conditionalCoverage: 0, statementCoverage: 0]
                 )
-                nodejs(nodeJSInstallationName: 'nodejs', configId: '8888f8d6-4952-46cb-ae62-2c518decba43') {
-                    sh 'npm install -g testcafe'
-                    sh 'testcafe "firefox:headless" testcafé/CreateCollectionPageTest.js testcafé/LoginPageTest.js testcafé/OverviewPageTest.js testcafé/RegisterPageTest.js'
+                catchError(buildResult: 'SUCCESS', stageResult: 'SUCCESS') {
+                    sh "docker kill \$(docker ps -qf expose=3000)"
                 }
-
+                sh "docker run --rm -p 3000:3000 -d ckfrontend"
+                sh 'npm install -g testcafe'
+                sh 'testcafe "firefox:headless" testcafé/CreateCollectionPageTest.js testcafé/LoginPageTest.js testcafé/OverviewPageTest.js testcafé/RegisterPageTest.js'
             }
         }
         stage("deploy") {
