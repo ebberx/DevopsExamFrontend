@@ -37,7 +37,6 @@ pipeline {
                     sh "docker kill \$(docker ps -qf expose=3000)"
                 }
                 sh "docker run --rm -p 3000:3000 -d ckfrontend"
-                sh 'npm install -g testcafe'
                 sh 'testcafe "firefox:headless" testcafé/CreateCollectionPageTest.js testcafé/LoginPageTest.js testcafé/OverviewPageTest.js testcafé/RegisterPageTest.js'
             }
         }
