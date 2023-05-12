@@ -2,7 +2,7 @@ import { Selector } from 'testcafe';
 import {click} from "@testing-library/user-event/dist/click.js";
 import { ClientFunction } from 'testcafe';
 
-fixture("testing the overview page").page("http://localhost/overview")
+fixture("testing the overview page").page("http://localhost:3000/overview")
 
 test("testing input fields", async t =>{
     const searchinput = await Selector('#searchbar')
@@ -21,6 +21,6 @@ test("clicking the add collection button (not sure how to check url correctly)",
         const url = await ClientFunction(() => window.location.href);
 
     await t
-        .expect(url()).eql('http://localhost/overview/create')
+        .expect(url()).eql('http://localhost:3000/overview/create')
 
 })

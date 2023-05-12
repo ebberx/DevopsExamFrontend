@@ -1,7 +1,7 @@
 import { Selector } from 'testcafe';
 import {click} from "@testing-library/user-event/dist/click.js";
 
-fixture("testing the register page").page("http://localhost/register")
+fixture("testing the register page").page("http://localhost:3000/register")
 
 test("testing input fields (can u even check a password field like that?)", async t =>{
     const usernameinput = await Selector('#username')
