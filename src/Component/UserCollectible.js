@@ -1,10 +1,7 @@
 import './UserCollectible.css';
 import { useState } from 'react';
 import { useEffect } from 'react';
-import {json, Link, useLocation, useParams} from 'react-router-dom';
-import Contextmenutest from "./Contextmenutest.js";
-import Navigation from "../Navigation.js";
-import UserCollection from "./UserCollection.js";
+import { useLocation, useParams } from 'react-router-dom';
 
 
 function UserCollectible() {
@@ -63,7 +60,7 @@ function UserCollectible() {
                 setCollectionArray(data);
                 console.log(collectionArray.length)
             });
-    }, [id, location]);
+    }, [attributeid, collectionArray.length, id, location]);
 
     return(
 

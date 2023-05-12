@@ -1,7 +1,7 @@
 import './UserCollection.css';
 import { useState } from 'react';
 import { useEffect } from 'react';
-import {json, useLocation} from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
 function UserCollection() {
 
