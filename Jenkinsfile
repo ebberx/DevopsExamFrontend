@@ -31,11 +31,7 @@ pipeline {
                        // optional, default is none
                        failingTarget: [methodCoverage: 0, conditionalCoverage: 0, statementCoverage: 0]
                 )
-                sh 'testcafe firefox:headless
-                testcafé/CreateCollectionPageTest.js
-                testcafé/LoginPageTest.js
-                testcafé/OverviewPageTest.js
-                testcafé/RegisterPageTest.js'
+                sh 'testcafe firefox:headless testcafé/CreateCollectionPageTest.js testcafé/LoginPageTest.js testcafé/OverviewPageTest.js testcafé/RegisterPageTest.js'
             }
         }
         stage("deploy") {
