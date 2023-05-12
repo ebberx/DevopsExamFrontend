@@ -37,7 +37,7 @@ pipeline {
                     sh "docker kill \$(docker ps -qf expose=3000)"
                 }
                 sh "docker run --rm -p 3000:3000 -d ckfrontend"
-                sh 'testcafe "firefox:headless" testcafé/CreateCollectionPageTest.js testcafé/LoginPageTest.js testcafé/OverviewPageTest.js testcafé/RegisterPageTest.js'
+                sh 'testcafe "chromium:headless" testcafé/CreateCollectionPageTest.js testcafé/LoginPageTest.js testcafé/OverviewPageTest.js testcafé/RegisterPageTest.js'
             }
         }
         stage("deploy") {
