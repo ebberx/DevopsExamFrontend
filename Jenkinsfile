@@ -8,7 +8,10 @@ pipeline {
 	stages {
 		stage("build") {
 			steps {
-			    sh "docker build . -t ckfrontend"
+			    nodejs(nodeJSInstallationName: 'nodejs', configId: '8888f8d6-4952-46cb-ae62-2c518decba43') {
+			        sh 'npm install'
+                    sh 'npm run build'
+                }
 			}
 		}
 
@@ -28,6 +31,11 @@ pipeline {
                        // optional, default is none
                        failingTarget: [methodCoverage: 0, conditionalCoverage: 0, statementCoverage: 0]
                 )
+                sh 'testcafe firefox:headless
+                testcafé/CreateCollectionPageTest.js
+                testcafé/LoginPageTest.js
+                testcafé/OverviewPageTest.js
+                testcafé/RegisterPageTest.js'
             }
         }
         stage("deploy") {

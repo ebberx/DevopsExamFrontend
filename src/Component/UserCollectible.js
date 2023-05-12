@@ -8,13 +8,6 @@ import UserCollection from "./UserCollection.js";
 
 
 function UserCollectible() {
-    const elements = document.getElementsByClassName("grid-item");
-    const dosearch = (event) => {
-        console.log(event.target.value);
-        for (let value in elements){
-            console.log(value)
-        }
-    };
     const CollectionArrayInit = [
         {
             "fldAttributeId":5,
@@ -44,74 +37,6 @@ function UserCollectible() {
             "fldAttributeId":5,
             "fldValue":1
         },
-        {
-            "fldAttributeId":5,
-            "fldValue":1
-        },{
-            "fldAttributeId":5,
-            "fldValue":1
-        },{
-            "fldAttributeId":5,
-            "fldValue":1
-        },{
-            "fldAttributeId":5,
-            "fldValue":1
-        },{
-            "fldAttributeId":5,
-            "fldValue":1
-        },{
-            "fldAttributeId":5,
-            "fldValue":1
-        },{
-            "fldAttributeId":5,
-            "fldValue":1
-        },{
-            "fldAttributeId":5,
-            "fldValue":1
-        },{
-            "fldAttributeId":5,
-            "fldValue":1
-        },{
-            "fldAttributeId":5,
-            "fldValue":1
-        },{
-            "fldAttributeId":5,
-            "fldValue":1
-        },{
-            "fldAttributeId":5,
-            "fldValue":1
-        },{
-            "fldAttributeId":5,
-            "fldValue":1
-        },{
-            "fldAttributeId":5,
-            "fldValue":1
-        },{
-            "fldAttributeId":5,
-            "fldValue":1
-        },{
-            "fldAttributeId":5,
-            "fldValue":1
-        },{
-            "fldAttributeId":5,
-            "fldValue":1
-        },{
-            "fldAttributeId":5,
-            "fldValue":1
-        },{
-            "fldAttributeId":5,
-            "fldValue":1
-        },{
-            "fldAttributeId":5,
-            "fldValue":1
-        },{
-            "fldAttributeId":5,
-            "fldValue":1
-        },
-
-
-
-
 
         {
             "fldAttributeId":6,
@@ -120,7 +45,6 @@ function UserCollectible() {
     const [collectionArray, setCollectionArray] = useState(CollectionArrayInit);
     const {id} = useParams();
     let attributeid = {id}.id
-
 
     const location = useLocation();
     useEffect(() => {
@@ -136,20 +60,14 @@ function UserCollectible() {
             .then(response=>response.json())
             .then(data => {
                 // Debug
-                console.log(data);
                 setCollectionArray(data);
+                console.log(collectionArray.length)
             });
     }, [id, location]);
 
     return(
 
     <div>
-        <div className="searchbardiv">
-            <Navigation />
-            <div >
-                <input id="searchbar" onChange={dosearch} type="text" placeholder="Search"></input>
-            </div>
-        </div>
         <br/>
         <div className="grid-container" style={{width: "50%", margin: "auto"}}>
         {Array.isArray(collectionArray) && collectionArray.map((element, index) => (
