@@ -23,6 +23,10 @@ function CreateCollectionPage() {
             .then(data => {
                 // Debug
                 console.log(data);
+                if(data === "Collection added") {
+                    alert("Successfully added collection!");
+                    window.location.href = "/overview";
+                }
             });
     }
 

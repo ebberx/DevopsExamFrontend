@@ -1,7 +1,13 @@
-import { Selector } from 'testcafe';
-import {click} from "@testing-library/user-event/dist/click.js";
+import {ClientFunction, Selector} from 'testcafe';
 
-fixture("testing the create collection page").page("http://localhost:3000/overview/create")
+const setLocalStorageItem = ClientFunction((key, value) => window.localStorage.setItem(key, value));
+
+fixture("testing the create collection page").page("http://localhost:3000/overview/create").beforeEach(async t =>{
+    await setLocalStorageItem("UserID", "5")
+    await setLocalStorageItem("UserEmail", "asd@asd.cas")
+    await setLocalStorageItem("UserName", "asd")
+})
+
 
 test("testing input fields", async t =>{
     const nameinput = await Selector('#collectionname')
@@ -17,20 +23,27 @@ test("testing input fields", async t =>{
         .expect(urlinput.value).eql('https://i.imgur.com/kaI2iEj.jpeg')
 })
 
-test("testing creating a collection, need some popup or message or whatever to tell the user collection successfully created", async t =>{
+test("testing creating a collection, mocks stuff", async t =>{
     const nameinput = await Selector('#collectionname')
     const descriptioninput = await Selector('#collectiondescription')
     const urlinput = await Selector('#collectionimageurl')
     const createclick = await Selector('#btncreate')
+    let dialogtype = "undefinedlll"
 
     await t
+
         .typeText(nameinput, 'test')
         .typeText(descriptioninput, 'what a test')
         .typeText(urlinput, 'https://i.imgur.com/kaI2iEj.jpeg')
+        .setNativeDialogHandler(() => true)
         .click(createclick)
 
-        .expect()
+    const dialoghistory = await t.getNativeDialogHistory();
 
-
+    await t
+        .expect(dialoghistory[0].type).eql('alert')
+        .expect(dialoghistory[0].text).eql('Successfully added collection!')
 
 })
+
+

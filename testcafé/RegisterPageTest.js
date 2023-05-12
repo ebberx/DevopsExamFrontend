@@ -1,5 +1,4 @@
 import { Selector } from 'testcafe';
-import {click} from "@testing-library/user-event/dist/click.js";
 
 fixture("testing the register page").page("http://localhost:3000/register")
 
@@ -26,8 +25,12 @@ test("clicking the register button", async t =>{
         .typeText(usernameinput, 'testicuschadicus')
         .typeText(passwordinput, 'goodpassword123')
         .typeText(emailinput, 'tcggmeister@gmail.com')
-
-
+        .setNativeDialogHandler(() => true)
         .click(registerclick)
-        .expect()
+
+    const dialoghistory = await t.getNativeDialogHistory();
+
+        await t
+        .expect(dialoghistory[0].type).eql('alert')
+        .expect(dialoghistory[0].text).eql('Successfully registered!')
 })

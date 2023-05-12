@@ -14,8 +14,8 @@ test("clicking the login button", async t =>{
     const emailinput = await Selector('#username')
     const passwordinput = await Selector('#password')
     await t
-        .typeText(emailinput, 'whatduh@gmail.com')
-        .typeText(passwordinput, 'testguhh')
+        .typeText(emailinput, 'tcggmeister@gmail.com')
+        .typeText(passwordinput, 'goodpassword123')
         .click(loginclick)
         const url = await ClientFunction(() => window.location.href);
 
