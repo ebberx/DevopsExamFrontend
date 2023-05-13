@@ -51,7 +51,7 @@ function UserCollection() {
     <div style={{width: "100%"}}>
         <div id="group">
         {Array.isArray(collectionArray) && collectionArray.map((element, index) => (
-            <a href={"overview/collections/" + element.fldCollectionId}  className="collection">
+            <a href={"collection/" + element.fldCollectionId}  className="collection">
 
             <div key={index} >
                 {element.fldCollectionName}

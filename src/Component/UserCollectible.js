@@ -41,7 +41,7 @@ function UserCollectible() {
         }];
     const [collectionArray, setCollectionArray] = useState(CollectionArrayInit);
     const {id} = useParams();
-    let attributeid = {id}.id
+    let collectionid = {id}.id
 
     const location = useLocation();
     useEffect(() => {
@@ -53,14 +53,14 @@ function UserCollectible() {
                 "Access-Control-Allow-Methods": "*" },
         };
 
-        fetch('http://10.176.88.60:5001/api/AttributeValues/GetAllAttributeValuesForCollection/' + attributeid, getData)
+        fetch('http://10.176.88.60:5001/api/AttributeValues/GetAllAttributeValuesForCollection/' + collectionid, getData)
             .then(response=>response.json())
             .then(data => {
                 // Debug
                 setCollectionArray(data);
                 console.log(collectionArray.length)
             });
-    }, [attributeid, collectionArray.length, id, location]);
+    }, [collectionid, collectionArray.length, id, location]);
 
     return(
 

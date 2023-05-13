@@ -5,6 +5,7 @@ import RegisterPage from './Page/RegisterPage.js';
 import OverviewPage from './Page/OverviewPage.js';
 import CreateCollectionPage from './Page/CreateCollectionPage.js';
 import AddCollectiblePage from './Page/AddCollectiblePage.js'
+import CollectiblesPage from "./Page/CollectiblesPage.js";
 
 const AppRoutes = () => {
     return (
@@ -13,8 +14,9 @@ const AppRoutes = () => {
                 <Route path="/" element={<LoginPage/>} />
                 <Route path="/register" element={<RegisterPage/>} />
                 <Route path="/overview" element={<OverviewPage/>} />
-                <Route path="/overview/create" element={<CreateCollectionPage/>} />
-                <Route path="/overview/collections/:id" element={<AddCollectiblePage/>}/>
+                <Route path="/collection/create" element={<CreateCollectionPage/>} />
+                <Route path="/collection/:id" element={<CollectiblesPage/>}/>
+                <Route path="/collection/:id/add" element={<AddCollectiblePage/>}/>
             </Routes>
         </BrowserRouter>
     );

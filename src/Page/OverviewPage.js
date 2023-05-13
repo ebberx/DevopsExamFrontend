@@ -22,12 +22,13 @@ function OverviewPage() {
                 <Navigation />
                 <input id="searchbar" onChange={dosearch} type="text" placeholder="Search"></input>
 
-                <Link to="/overview/create">
+                <Link to="/collection/create">
                     <button id="btnAddCollection">Add Collection</button>
                 </Link>
             </div>
 
             <UserCollection/>
+
         </div>
     );
 }
