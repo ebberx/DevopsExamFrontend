@@ -13,7 +13,7 @@ test("testing input fields", async t =>{
 
 
 
-test("clicking the add collection button (not sure how to check url correctly)", async t =>{
+test("clicking the add collection button", async t =>{
     const buttonclick = await Selector('#createcolllectionlink')
 
     await t

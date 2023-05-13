@@ -2,7 +2,7 @@ import { Selector } from 'testcafe';
 
 fixture("testing the register page").page("http://localhost:3000/register")
 
-test("testing input fields (can u even check a password field like that?)", async t =>{
+test("testing input fields", async t =>{
     const usernameinput = await Selector('#username')
     const passwordinput = await Selector('#password')
     const emailinput = await Selector('#email')

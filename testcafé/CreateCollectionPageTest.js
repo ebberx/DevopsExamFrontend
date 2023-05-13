@@ -23,7 +23,7 @@ test("testing input fields", async t =>{
         .expect(urlinput.value).eql('https://i.imgur.com/kaI2iEj.jpeg')
 })
 
-test("testing creating a collection, mocks stuff", async t =>{
+test("testing creating a collection", async t =>{
     const nameinput = await Selector('#collectionname')
     const descriptioninput = await Selector('#collectiondescription')
     const urlinput = await Selector('#collectionimageurl')
