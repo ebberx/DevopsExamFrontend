@@ -1,6 +1,9 @@
 import './CreateCollectionPage.css';
 import Navigation from "../Navigation.js";
 import {useState} from "react";
+import GetBackendEndpoint from "../config.js";
+import {useHref} from "react-router-dom";
+
 
 function CreateCollectionPage() {
     const [collectionname, setcollectionname] = useState("");
@@ -9,7 +12,9 @@ function CreateCollectionPage() {
 
     const CreateCollection = async () => {
         const userID = Number(localStorage.getItem("UserID"));
-        const getData = {
+
+        // First create the collection and get a collectionID back
+        const createCollectionData = {
             method: 'POST',
             headers: { 'Content-Type': 'application/json',
                         "Access-Control-Allow-Headers": "*",
@@ -17,16 +22,39 @@ function CreateCollectionPage() {
                         "Access-Control-Allow-Methods": "*" },
             body: JSON.stringify({ flduserId: userID, fldCollectionName: collectionname, fldCollectionDescription: description, fldCollectionThumbnail: imageid })
         };
-
-        fetch('http://10.176.88.60:5001/api/Collections/CreateCollection', getData)
+        let collectionid = -1;
+        fetch(GetBackendEndpoint() + '/api/Collections/CreateCollection', createCollectionData)
             .then(response=>response.text())
             .then(data => {
-                // Debug
-                console.log(data);
-                if(data === "Collection added") {
-                    alert("Successfully added collection!");
-                    window.location.href = "/overview";
+                // Check if returned data is a number by checking if it is finite
+                if(Number.isFinite(Number(data))) {
+                    collectionid = Number(data);
+                } else {
+                    console.error("Didn't get a proper response back from the backend.");
+                    console.error("Please report this to the developer: \n " + data);
                 }
+
+                // Then create attributes on the collection: Name & Image
+                const attributeNameData = {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json', "Access-Control-Allow-Headers": "*", "Access-Control-Allow-Origin": "*", "Access-Control-Allow-Methods": "*" },
+                    body: JSON.stringify({ fldCollectionId: collectionid, fldAttributeName: "Name" })
+                };
+                fetch(GetBackendEndpoint() + '/api/Attribute/CreateAttribute/', attributeNameData)
+                    .then(response=>response.text())
+                    .then(data => { console.log(data); });
+                const attributeImageData = {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json', "Access-Control-Allow-Headers": "*", "Access-Control-Allow-Origin": "*", "Access-Control-Allow-Methods": "*" },
+                    body: JSON.stringify({ fldCollectionId: collectionid, fldAttributeName: "Image" })
+                };
+                fetch(GetBackendEndpoint() + '/api/Attribute/CreateAttribute/', attributeImageData)
+                    .then(response=>response.text())
+                    .then(data => {
+                        console.log(data)
+                        alert("Successfully created a new collection!")
+                        window.location.href = "/overview"
+                    });
             });
     }
 

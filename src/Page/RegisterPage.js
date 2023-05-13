@@ -1,6 +1,7 @@
 import './RegisterPage.css';
 import {Link} from "react-router-dom";
 import React, { useState } from 'react';
+import GetBackendEndpoint from "../config.js";
 
 function RegisterPage() {
 
@@ -17,7 +18,7 @@ function RegisterPage() {
                 "Access-Control-Allow-Methods": "*" },
             body: JSON.stringify({ fldUsername: username, fldPassword: password, fldEmail: email })
         };
-        fetch('http://10.176.88.60:5001/api/User/CreateNewUser', requestOptions)
+        fetch(GetBackendEndpoint() + '/api/User/CreateNewUser', requestOptions)
             .then(response=> response.text())
             .then(data => {
                 // Debug

@@ -1,6 +1,7 @@
 import './LoginPage.css';
 import {Navigate} from "react-router-dom";
 import React, {useState} from "react";
+import GetBackendEndpoint from "../config.js";
 
 function LoginPage() {
 
@@ -23,7 +24,7 @@ function LoginPage() {
             body: JSON.stringify({ fldEmail: email, fldPassword: password })
         };
 
-        fetch('http://10.176.88.60:5001/api/User/Login', requestOptions)
+        fetch(GetBackendEndpoint() + '/api/User/Login', requestOptions)
             .then(response => response.text())
             .then(data => {
                 console.log(data);

@@ -1,49 +1,34 @@
 import './UserCollectible.css';
 import { useState } from 'react';
 import { useEffect } from 'react';
-import { useLocation, useParams } from 'react-router-dom';
-
+import { useParams } from 'react-router-dom';
+import GetBackendEndpoint from "../config.js";
 
 function UserCollectible() {
-    const CollectionArrayInit = [
-        {
+    const CollectionArrayInit = [{
             "fldAttributeId":5,
-            "fldValue":1
-        },
-        {
+            "fldValue":1 }, {
             "fldAttributeId":5,
-            "fldValue":1
-        },
-        {
+            "fldValue":1 }, {
             "fldAttributeId":5,
-            "fldValue":1
-        },
-        {
+            "fldValue":1 }, {
             "fldAttributeId":5,
-            "fldValue":1
-        },
-        {
+            "fldValue":1 }, {
             "fldAttributeId":5,
-            "fldValue":1
-        },
-        {
+            "fldValue":1 }, {
             "fldAttributeId":5,
-            "fldValue":1
-        },
-        {
+            "fldValue":1 }, {
             "fldAttributeId":5,
-            "fldValue":1
-        },
-
-        {
+            "fldValue":1 }, {
             "fldAttributeId":6,
-            "fldValue":6
-        }];
+            "fldValue":6 }
+    ];
     const [collectionArray, setCollectionArray] = useState(CollectionArrayInit);
     const {id} = useParams();
-    let collectionid = {id}.id
 
-    const location = useLocation();
+    ///////////////////////////////////
+    // THIS GETS RUN TWICE ON PAGE LOAD
+    ///////////////////////////////////
     useEffect(() => {
         const getData = {
             method: 'GET',
@@ -53,30 +38,27 @@ function UserCollectible() {
                 "Access-Control-Allow-Methods": "*" },
         };
 
-        fetch('http://10.176.88.60:5001/api/AttributeValues/GetAllAttributeValuesForCollection/' + collectionid, getData)
+        fetch(GetBackendEndpoint() + '/api/AttributeValues/GetAllAttributeValuesForCollection/' + id, getData)
             .then(response=>response.json())
             .then(data => {
                 // Debug
                 setCollectionArray(data);
-                console.log(collectionArray.length)
             });
-    }, [collectionid, collectionArray.length, id, location]);
+    }, [collectionArray.length, id]);
 
     return(
-
-    <div>
-        <br/>
-        <div className="grid-container" style={{width: "50%", margin: "auto"}}>
-        {Array.isArray(collectionArray) && collectionArray.map((element, index) => (
-            <div key={index} className="grid-item">
-                {element.fldAttributeId}
-                    <br/>
-                {element.fldValue}
+        <div>
+            <br/>
+            <div className="grid-container" style={{width: "50%", margin: "auto"}}>
+            {Array.isArray(collectionArray) && collectionArray.map((element, index) => (
+                <div key={index} className="grid-item">
+                    {element.fldAttributeId}
+                        <br/>
+                    {element.fldValue}
+                </div>
+            ))}
             </div>
-        ))}
         </div>
-    </div>
     );
 }
-
 export default UserCollectible;

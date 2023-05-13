@@ -10,7 +10,7 @@ const Navigation = () => {
                     <Link to="/overview">Overview</Link>
                 </li>
                 <li>
-                    <Link to="/overview/create">Create Collection</Link>
+                    <Link to="/collection/create">Create Collection</Link>
                 </li>
             </ul>
         </nav>

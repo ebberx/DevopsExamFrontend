@@ -2,6 +2,7 @@ import './UserCollection.css';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
+import GetBackendEndpoint from "../config.js";
 
 function UserCollection() {
 
@@ -36,7 +37,7 @@ function UserCollection() {
             body: JSON.stringify({flduserId: userID, numberRandomCollections: 32})
         }
 
-        fetch('http://10.176.88.60:5001/api/Collections/GetRandomSetOfCollections', getCollections)
+        fetch(GetBackendEndpoint() + '/api/Collections/GetRandomSetOfCollections', getCollections)
             .then(response => response.json())
             .then(data => {
                 // Debug
@@ -51,15 +52,13 @@ function UserCollection() {
     <div style={{width: "100%"}}>
         <div id="group">
         {Array.isArray(collectionArray) && collectionArray.map((element, index) => (
-            <a href={"collection/" + element.fldCollectionId}  className="collection">
-
-            <div key={index} >
-                {element.fldCollectionName}
-                    <br/>
-                {element.fldCollectionThumbnail !== "" ? (<img src={element.fldCollectionThumbnail} alt="" style={{width: "100%"}}></img>) : ("no image attached")}
-            </div>
+            <a key={index} href={"collection/" + element.fldCollectionId}  className="collection">
+                <div>
+                    {element.fldCollectionName}
+                        <br/>
+                    {element.fldCollectionThumbnail !== "" ? (<img src={element.fldCollectionThumbnail} alt="" style={{width: "100%"}}></img>) : ("no image attached")}
+                </div>
             </a>
-
         ))}
         </div>
 

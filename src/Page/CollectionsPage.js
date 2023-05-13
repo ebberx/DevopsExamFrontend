@@ -1,11 +1,11 @@
-import './OverviewPage.css';
+import './CollectionsPage.css';
 import UserCollection from "../Component/UserCollection.js";
 import Navigation from "../Navigation.js";
 import {Link} from "react-router-dom";
 import Contextmenutest from "../Component/Contextmenutest.js";
 
-function OverviewPage() {
-  /* const selectElement = document.querySelector("#searchbar");*/
+function CollectionsPage() {
+
     const elements = document.getElementsByClassName("collection");
     const dosearch = (event) => {
         console.log(event.target.value);
@@ -32,4 +32,4 @@ function OverviewPage() {
         </div>
     );
 }
-export default OverviewPage;
+export default CollectionsPage;
