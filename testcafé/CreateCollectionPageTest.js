@@ -28,7 +28,6 @@ test("testing creating a collection, mocks stuff", async t =>{
     const descriptioninput = await Selector('#collectiondescription')
     const urlinput = await Selector('#collectionimageurl')
     const createclick = await Selector('#btncreate')
-    let dialogtype = "undefinedlll"
 
     await t
 

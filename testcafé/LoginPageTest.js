@@ -16,6 +16,7 @@ test("clicking the login button", async t =>{
     await t
         .typeText(emailinput, 'tcggmeister@gmail.com')
         .typeText(passwordinput, 'goodpassword123')
+        .setNativeDialogHandler(() => true)
         .click(loginclick)
         const url = await ClientFunction(() => window.location.href);
 
