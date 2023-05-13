@@ -38,6 +38,7 @@ pipeline {
                 }
                 sh "docker run --rm -p 3000:3000 -d ckfrontend"
                 sh 'testcafe "chromium:headless" testcafé/CreateCollectionPageTest.js testcafé/LoginPageTest.js testcafé/OverviewPageTest.js testcafé/RegisterPageTest.js'
+                sh 'k6 run k6/loadtest.js'
             }
         }
         stage("deploy") {
