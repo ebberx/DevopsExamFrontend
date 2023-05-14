@@ -20,7 +20,7 @@ function CreateCollectionPage() {
                         "Access-Control-Allow-Headers": "*",
                         "Access-Control-Allow-Origin": "*",
                         "Access-Control-Allow-Methods": "*" },
-            body: JSON.stringify({ flduserId: userID, fldCollectionName: collectionname, fldCollectionDescription: description, fldCollectionThumbnail: imageid })
+            body: JSON.stringify({ flduserId: userID, fldCollectionName: collectionname, fldCollectionDescription: description, fldCollectionThumbnail: imageid, fldIsPrivate: false })
         };
         let collectionid = -1;
         fetch(GetBackendEndpoint() + '/api/Collections/CreateCollection', createCollectionData)
