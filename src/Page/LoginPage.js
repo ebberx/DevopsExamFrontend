@@ -65,7 +65,7 @@ function LoginPage() {
             </a>
             <hr/>
             Don't have an account?
-            <a href="/register">Register here</a>
+            <a id = "register" href="/register">Register here</a>
         </div>
     );
 }
