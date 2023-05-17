@@ -6,16 +6,13 @@ import Contextmenutest from "../Component/Contextmenutest.js";
 
 function CollectionsPage() {
 
-    const elements = document.getElementsByClassName("collection");
+    const elements = document.getElementsByClassName("UserCollection-grid-item");
 
     const dosearch = (event) => {
         console.log("this is the event target value: "+event.target.value);
         for (let value in elements){
             console.log("this is the value: "+value)
             console.log(elements.item(1).attributes)
-            console.log(elements.namedItem("a"))
-            console.log(elements.namedItem("test"))
-            console.log(elements.namedItem("as"))
 
         }
     };
@@ -25,7 +22,6 @@ function CollectionsPage() {
 
             <div id="overviewBody">
                 <Navigation />
-                <input id="searchbar" onChange={dosearch} type="text" placeholder="Search"></input>
 
                 <Link to="/collection/create">
                     <button id="btnAddCollection">Add Collection</button>

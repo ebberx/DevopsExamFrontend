@@ -6,6 +6,7 @@ import GetBackendEndpoint from "../config.js";
 
 function UserCollection() {
 
+
     const CollectionArrayInit = [
         {
             "fldCollectionId":5,
@@ -57,7 +58,19 @@ function UserCollection() {
         }
         ];
     const [collectionArray, setCollectionArray] = useState(CollectionArrayInit);
+    const [filterArray, setfilterArray] = useState(CollectionArrayInit);
+
     const location = useLocation();
+
+
+    const dosearch = (event) => {
+        console.log("this is the event target value: "+event.target.value);
+
+
+
+
+    };
+
 
     useEffect(() => {
         const userID = Number(localStorage.getItem("UserID"));
@@ -83,6 +96,7 @@ function UserCollection() {
     return(
 
     <div>
+        <input id="searchbar" onChange={dosearch} type="text" placeholder="Search"></input>
         <div className="UserCollection-grid-container" style={{width: "50%", margin: "auto"}}>
         {Array.isArray(collectionArray) && collectionArray.map((element, index) => (
             <a key={index} href={"collection/" + element.fldCollectionId}  className="collection">
