@@ -2,8 +2,6 @@ import './CreateCollectionPage.css';
 import Navigation from "../Navigation.js";
 import {useState} from "react";
 import GetBackendEndpoint from "../config.js";
-import {useHref} from "react-router-dom";
-
 
 function CreateCollectionPage() {
     const [collectionname, setcollectionname] = useState("");
@@ -16,10 +14,7 @@ function CreateCollectionPage() {
         // First create the collection and get a collectionID back
         const createCollectionData = {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json',
-                        "Access-Control-Allow-Headers": "*",
-                        "Access-Control-Allow-Origin": "*",
-                        "Access-Control-Allow-Methods": "*" },
+            headers: { 'Content-Type': 'application/json', "Access-Control-Allow-Headers": "*", "Access-Control-Allow-Origin": "*",  "Access-Control-Allow-Methods": "*" },
             body: JSON.stringify({ flduserId: userID, fldCollectionName: collectionname, fldCollectionDescription: description, fldCollectionThumbnail: imageid, fldIsPrivate: false })
         };
         let collectionid = -1;

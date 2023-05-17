@@ -5,17 +5,8 @@ import {Link} from "react-router-dom";
 import Contextmenutest from "../Component/Contextmenutest.js";
 
 function CollectionsPage() {
+    // Code goes here
 
-    const elements = document.getElementsByClassName("UserCollection-grid-item");
-
-    const dosearch = (event) => {
-        console.log("this is the event target value: "+event.target.value);
-        for (let value in elements){
-            console.log("this is the value: "+value)
-            console.log(elements.item(1).attributes)
-
-        }
-    };
     return (
         <div className="OverviewPage">
             <Contextmenutest/>

@@ -45,3 +45,15 @@
     border-radius: 10px;
 
 }
+#SearchDiv {
+    width: 100%;
+}
+
+#searchbar {
+    align-items: center;
+    justify-content: center;
+    margin-left: calc((100%/2) - 12.5%);
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+}

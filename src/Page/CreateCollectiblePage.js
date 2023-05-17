@@ -1,12 +1,12 @@
 import './CreateCollectiblePage.css';
 import Navigation from "../Navigation.js";
-import {useParams} from "react-router-dom";
+//import {useParams} from "react-router-dom";
 import {useState} from "react";
 
 function CreateCollectiblePage() {
     const [attributename, setattributename] = useState("");
     const [imageid, setimageid] = useState("");
-    const {id} = useParams();
+    //const {id} = useParams();
 
     const AddCollectible = async () => {
 
