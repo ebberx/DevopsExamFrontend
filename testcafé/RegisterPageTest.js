@@ -1,6 +1,7 @@
 import { Selector } from 'testcafe';
+import GetBackendEndpoint from "../src/config.js";
 
-fixture("testing the register page").page("http://localhost:3000/register")
+fixture("testing the register page").page(GetBackendEndpoint() + '/register')
 
 const usernameinput = await Selector('#username')
 const passwordinput = await Selector('#password')

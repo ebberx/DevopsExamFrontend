@@ -23,8 +23,22 @@ function UserCollectible() {
             "fldAttributeId":6,
             "fldValue":6 }
     ];
-    const [collectionArray, setCollectionArray] = useState(CollectionArrayInit);
+    const [collectionArray, setCollectionArray] = useState();
     const {id} = useParams();
+    const [filteredCollectionArray, setFilterCollectionArray] = useState();
+
+    const dosearch = (event) => {
+        let value = {
+            fldAttributeId: event.target.value
+        }
+        let filteredArray = collectionArray.filter((elem)=> { return elem.fldAttributeId.includes(value.fldAttributeId) }, value)
+        if(event.target.value.length !== 0) {
+            setFilterCollectionArray(filteredArray)
+        }
+        else if(event.target.value.length === 0) {
+            setFilterCollectionArray(collectionArray)
+        }
+    };
 
     ///////////////////////////////////
     // THIS GETS RUN TWICE ON PAGE LOAD
@@ -44,13 +58,16 @@ function UserCollectible() {
                 // Debug
                 setCollectionArray(data);
             });
-    }, [collectionArray.length, id]);
+    }, [id]);
 
     return(
         <div>
+            <div id="SearchDiv">
+                <input id="searchbar" onChange={dosearch} type="text" placeholder="Search"></input>
+            </div>
             <br/>
             <div className="UserCollectible-grid-container" style={{width: "50%", margin: "auto"}}>
-            {Array.isArray(collectionArray) && collectionArray.map((element, index) => (
+            {Array.isArray(filteredCollectionArray) && filteredCollectionArray.map((element, index) => (
                 <div key={index} className="UserCollectible-grid-item">
                     {element.fldAttributeId}
                         <br/>

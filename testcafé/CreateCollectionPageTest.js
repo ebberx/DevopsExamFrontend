@@ -1,8 +1,9 @@
 import {ClientFunction, Selector} from 'testcafe';
+import GetBackendEndpoint from "../src/config.js";
 
 const setLocalStorageItem = ClientFunction((key, value) => window.localStorage.setItem(key, value));
 
-fixture("testing the create collection page").page("http://localhost:3000/overview/create").beforeEach(async t =>{
+fixture("testing the create collection page").page(GetBackendEndpoint() + "/overview/create").beforeEach(async t =>{
     await setLocalStorageItem("UserID", "5")
     await setLocalStorageItem("UserEmail", "asd@asd.cas")
     await setLocalStorageItem("UserName", "asd")

@@ -1,6 +1,7 @@
 import {ClientFunction, Selector} from 'testcafe';
+import GetBackendEndpoint from "../src/config.js";
 
-fixture("testing the login page").page("http://localhost:3000/")
+fixture("testing the login page").page(GetBackendEndpoint())
 
 const loginclick = await Selector('#btnLogin')
 const emailinput = await Selector('#username')
@@ -24,7 +25,7 @@ test("clicking the login button with existing account details, and checking if t
         const url = await ClientFunction(() => window.location.href);
 
     await t
-        .expect(url()).eql('http://localhost:3000/overview')
+        .expect(url()).eql(GetBackendEndpoint() + '/overview')
 
 })
 
@@ -53,6 +54,6 @@ test("clicking the register button and checking if the page redirects to /regist
     const url = await ClientFunction(() => window.location.href);
 
     await t
-        .expect(url()).eql('http://localhost:3000/register')
+        .expect(url()).eql(GetBackendEndpoint() + '/register')
 
 })

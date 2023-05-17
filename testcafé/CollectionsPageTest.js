@@ -1,6 +1,7 @@
 import {ClientFunction, Selector} from 'testcafe';
+import GetBackendEndpoint from "../src/config.js";
 
-fixture("testing the collection page").page("http://localhost:3000/")
+fixture("testing the collection page").page(GetBackendEndpoint())
 
 const addcollectionclick = await Selector('btnAddCollection')
 const searchbarinput = await Selector('searchbar')
@@ -11,7 +12,7 @@ test("clicking the add collection button", async t =>{
     const url = await ClientFunction(() => window.location.href);
 
     await t
-        .expect(url()).eql('http://localhost:3000/collection/create')
+        .expect(url()).eql(GetBackendEndpoint() + '/collection/create')
 })
 
 test("testing input fields to see if they are writable", async t =>{
