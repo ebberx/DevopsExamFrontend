@@ -12,7 +12,7 @@ function UserCollection() {
             "fldUserId":1,
             "fldCollectionName":"123",
             "fldCollectionDescription":"123",
-            "fldCollectionThumbnail":"",
+            "fldCollectionThumbnail":"https://i.imgur.com/kaI2iEj.jpeg",
             "fldIsPrivate":null
         },
         {
@@ -20,9 +20,42 @@ function UserCollection() {
             "fldUserId":1,
             "fldCollectionName":"FIX",
             "fldCollectionDescription":"THE",
-            "fldCollectionThumbnail":"",
+            "fldCollectionThumbnail":"https://i.imgur.com/kaI2iEj.jpeg",
             "fldIsPrivate":null
-        }];
+        },
+        {
+            "fldCollectionId":7,
+            "fldUserId":1,
+            "fldCollectionName":"fw",
+            "fldCollectionDescription":"THE",
+            "fldCollectionThumbnail":"https://i.imgur.com/UeBufFG.png",
+            "fldIsPrivate":null
+        },
+        {
+            "fldCollectionId":8,
+            "fldUserId":1,
+            "fldCollectionName":"ca",
+            "fldCollectionDescription":"THE",
+            "fldCollectionThumbnail":"https://i.imgur.com/kaI2iEj.jpeg",
+            "fldIsPrivate":null
+        },
+        {
+            "fldCollectionId":9,
+            "fldUserId":1,
+            "fldCollectionName":"de",
+            "fldCollectionDescription":"THE",
+            "fldCollectionThumbnail":"https://i.imgur.com/kaI2iEj.jpeg",
+            "fldIsPrivate":null
+        },
+        {
+            "fldCollectionId":10,
+            "fldUserId":1,
+            "fldCollectionName":"as",
+            "fldCollectionDescription":"THE",
+            "fldCollectionThumbnail":"https://i.imgur.com/kaI2iEj.jpeg",
+            "fldIsPrivate":null
+        }
+        ];
     const [collectionArray, setCollectionArray] = useState(CollectionArrayInit);
     const location = useLocation();
 
@@ -49,14 +82,14 @@ function UserCollection() {
 
     return(
 
-    <div style={{width: "100%"}}>
-        <div id="group">
+    <div>
+        <div className="UserCollection-grid-container" style={{width: "50%", margin: "auto"}}>
         {Array.isArray(collectionArray) && collectionArray.map((element, index) => (
             <a key={index} href={"collection/" + element.fldCollectionId}  className="collection">
-                <div>
+                <div className="UserCollection-grid-item">
                     {element.fldCollectionName}
                         <br/>
-                    {element.fldCollectionThumbnail !== "" ? (<img src={element.fldCollectionThumbnail} alt="" style={{width: "100%"}}></img>) : ("no image attached")}
+                    {element.fldCollectionThumbnail !== "" ? (<img src={element.fldCollectionThumbnail} alt="" style={{maxWidth: "100%", maxHeight: "100%", width: "100px", height: "110px"}}></img>) : ("no image attached")}
                 </div>
             </a>
         ))}

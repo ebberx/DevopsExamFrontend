@@ -1,6 +1,10 @@
 import {ClientFunction, Selector} from 'testcafe';
+import {useParams} from "react-router-dom";
 
-fixture("testing the create collectible page").page("http://localhost:3000/")
+//need to make sure it loads some test users collections and that it has the assigned collectionid
+
+fixture("testing the create collectible page").page("http://localhost:3000/6/add")
+
 
 const btncreateclick = await Selector('btncreate')
 const attributenameinput = await Selector('Attributename')
@@ -15,6 +19,8 @@ test("testing input fields to see if they are writable", async t =>{
         .expect(imageurlinput.value).eql('ahh')
 })
 
+//need to fix adding collectibles
+
 /*
 test("clicking the add collection button", async t =>{
     await t
@@ -22,6 +28,6 @@ test("clicking the add collection button", async t =>{
     const url = await ClientFunction(() => window.location.href);
 
     await t
-        .expect(url()).eql('http://localhost:3000/collection/create')
+        .expect(url()).eql('http://localhost:3000/collection/'++'/add')
 })
  */

@@ -49,9 +49,9 @@ function UserCollectible() {
     return(
         <div>
             <br/>
-            <div className="grid-container" style={{width: "50%", margin: "auto"}}>
+            <div className="UserCollectible-grid-container" style={{width: "50%", margin: "auto"}}>
             {Array.isArray(collectionArray) && collectionArray.map((element, index) => (
-                <div key={index} className="grid-item">
+                <div key={index} className="UserCollectible-grid-item">
                     {element.fldAttributeId}
                         <br/>
                     {element.fldValue}

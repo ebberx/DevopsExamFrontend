@@ -1,3 +1,5 @@
+
+/*
 #group{
     display: flex;
     align-content: center;
@@ -13,5 +15,33 @@
     width: 150px;
     height: 150px;
     text-align: center;
+
+}
+ */
+
+.UserCollection-grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    row-gap: 25px;
+    column-gap: 25px;
+
+}
+.UserCollection-grid-item {
+    background-color: bisque;
+    width: 150px;
+    height: 150px;
+    text-align: center;
+    border-radius: 10px;
+
+}
+
+.UserCollection-grid-item:hover {
+    background-color: bisque;
+    width: 150px;
+    height: 150px;
+    text-align: center;
+    transform: scale(1.2) perspective(100px);
+    transition: all 1s ease;
+    border-radius: 10px;
 
 }
