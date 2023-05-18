@@ -9,19 +9,32 @@ function UserCollectible() {
     const {id} = useParams();
     const [filteredCollectionArray, setFilterCollectionArray] = useState();
 
+
+
     const dosearch = (event) => {
         let value = {
-            fldAttributeId: event.target.value
+            attributevalue: event.target.value
         }
-        /*
-        let filteredArray = collectionArray.filter((elem)=> { return elem.fldAttributeId.includes(value.fldAttributeId) }, value)
+
+
+        let filteredArray = collectionArray.filter((elem) => {
+            for (let i = 0; i < elem.length; i++) {
+                if(elem[i].attributevalue.includes(value.attributevalue)){
+                    return true;
+                }
+            }
+            return false;
+
+            }, value)
+
+
         if(event.target.value.length !== 0) {
             setFilterCollectionArray(filteredArray)
         }
         else if(event.target.value.length === 0) {
             setFilterCollectionArray(collectionArray)
         }
-        */
+
     };
 
     ///////////////////////////////////
@@ -34,14 +47,37 @@ function UserCollectible() {
                 "Access-Control-Allow-Headers": "*",
                 "Access-Control-Allow-Origin": "*",
                 "Access-Control-Allow-Methods": "*" },
-        };
 
-        fetch(GetBackendEndpoint() + '/api/AttributeValues/GetAllAttributeValuesForCollection/' + id, getData)
+        };
+        fetch(GetBackendEndpoint() + '/api/AttributeValues/GetDisctinctCollectionEntryIDsOnCollectionID/' + id, getData)
             .then(response=>response.json())
-            .then(data => {
+            .then(async data => {
+
                 // Debug
+                /*
                 setCollectionArray(data)
                 setFilterCollectionArray(data)
+                 */
+
+                let EntryArray = []
+
+                for (let value in data) {
+                    await fetch(GetBackendEndpoint() + '/api/AttributeValues/GetCollectionEntry/' + data[value], getData)
+                        .then(response => response.json())
+                        .then(Entry => {
+                            let empty = []
+                            for (let i = 0; i < Entry.length; i++) {
+                                let emptiness = {}
+                                emptiness.attributename = Entry[i].fldAttributeName
+                                emptiness.attributevalue = Entry[i].fldValue
+                                empty.push(emptiness)
+                            }
+                            EntryArray.push(empty)
+                        })
+                }
+                setFilterCollectionArray(EntryArray)
+                setCollectionArray(EntryArray)
+
             });
     }, [id]);
 
@@ -54,9 +90,14 @@ function UserCollectible() {
             <div className="UserCollectible-grid-container" style={{width: "50%", margin: "auto"}}>
             {Array.isArray(filteredCollectionArray) && filteredCollectionArray.map((element, index) => (
                 <div key={index} className="UserCollectible-grid-item">
-                    {element.fldAttributeId}
+                    {element.map((e, idx) => (
+                    <div key={idx}>
+                        {e.attributename}
                         <br/>
-                    {element.fldValue}
+                        {e.attributevalue}
+                        {e.attributevalue !== "" ? (<img src={e.attributevalue} alt="" style={{maxWidth: "100%", maxHeight: "100%", width: "100px", height: "110px"}}></img>) : ("no image attached")}
+                    </div>
+                ))}
                 </div>
             ))}
             </div>
