@@ -8,19 +8,15 @@ function CollectionsPage() {
     // Code goes here
 
     return (
-        <div className="OverviewPage">
+        <div className="CollectionsPage">
             <Contextmenutest/>
-
-            <div id="overviewBody">
+            <div id="CollectionsBody">
                 <Navigation />
-
                 <Link to="/collection/create">
                     <button id="btnAddCollection">Add Collection</button>
                 </Link>
             </div>
-
             <UserCollection/>
-
         </div>
     );
 }

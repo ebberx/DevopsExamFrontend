@@ -5,24 +5,6 @@ import { useParams } from 'react-router-dom';
 import GetBackendEndpoint from "../config.js";
 
 function UserCollectible() {
-    const CollectionArrayInit = [{
-            "fldAttributeId":5,
-            "fldValue":1 }, {
-            "fldAttributeId":5,
-            "fldValue":1 }, {
-            "fldAttributeId":5,
-            "fldValue":1 }, {
-            "fldAttributeId":5,
-            "fldValue":1 }, {
-            "fldAttributeId":5,
-            "fldValue":1 }, {
-            "fldAttributeId":5,
-            "fldValue":1 }, {
-            "fldAttributeId":5,
-            "fldValue":1 }, {
-            "fldAttributeId":6,
-            "fldValue":6 }
-    ];
     const [collectionArray, setCollectionArray] = useState();
     const {id} = useParams();
     const [filteredCollectionArray, setFilterCollectionArray] = useState();
@@ -31,6 +13,7 @@ function UserCollectible() {
         let value = {
             fldAttributeId: event.target.value
         }
+        /*
         let filteredArray = collectionArray.filter((elem)=> { return elem.fldAttributeId.includes(value.fldAttributeId) }, value)
         if(event.target.value.length !== 0) {
             setFilterCollectionArray(filteredArray)
@@ -38,6 +21,7 @@ function UserCollectible() {
         else if(event.target.value.length === 0) {
             setFilterCollectionArray(collectionArray)
         }
+        */
     };
 
     ///////////////////////////////////
@@ -56,7 +40,8 @@ function UserCollectible() {
             .then(response=>response.json())
             .then(data => {
                 // Debug
-                setCollectionArray(data);
+                setCollectionArray(data)
+                setFilterCollectionArray(data)
             });
     }, [id]);
 

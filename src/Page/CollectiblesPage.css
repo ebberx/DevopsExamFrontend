@@ -1,0 +1,11 @@
+.CollectiblesPage {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+}
+
+.searchbardiv {
+    text-align: center;
+    margin: auto;
+}

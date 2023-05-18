@@ -28,6 +28,9 @@
     transition: all 1s ease;
     border-radius: 50px;
 }
+
+
+/*
 .searchbardiv{
     display: flex;
     flex-direction: column;
@@ -40,7 +43,6 @@
     right: 0;
 }
 
-/*
 #group{
     display: flex;
     align-content: flex-start;
