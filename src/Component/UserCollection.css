@@ -32,7 +32,7 @@
     height: 150px;
     text-align: center;
     border-radius: 10px;
-
+    transition: all 700ms ease;
 }
 
 .UserCollection-grid-item:hover {
@@ -41,7 +41,7 @@
     height: 150px;
     text-align: center;
     transform: scale(1.2) perspective(100px);
-    transition: all 1s ease;
+    transition: all 700ms ease;
     border-radius: 10px;
 
 }
