@@ -2,6 +2,7 @@ import './CreateCollectiblePage.css';
 import Navigation from "../Navigation.js";
 //import {useParams} from "react-router-dom";
 import {useState} from "react";
+import GetBackendEndpoint from "../config.js";
 
 function CreateCollectiblePage() {
     const [attributename, setattributename] = useState("");
@@ -9,7 +10,15 @@ function CreateCollectiblePage() {
     //const {id} = useParams();
 
     const AddCollectible = async () => {
-
+        const postAttributeData = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', "Access-Control-Allow-Headers": "*", "Access-Control-Allow-Origin": "*",  "Access-Control-Allow-Methods": "*" },
+            body: JSON.stringify({ })
+        };
+        let collectionid = -1;
+        fetch(GetBackendEndpoint() + '/api/AttributeValues/PostAttributeValue', postAttributeData)
+            .then(response=>response.text())
+            .then(data => {});
 
     }
 

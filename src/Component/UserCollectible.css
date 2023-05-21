@@ -1,4 +1,50 @@
+.UserCollectible-grid-container {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    row-gap: 25px;
+    column-gap: 25px;
 
+}
+.UserCollectible-grid-item {
+    background-color: bisque;
+    margin: auto;
+    width: 200px;
+    height: 200px;
+    font-size: 18px;
+    text-align: center;
+    border-radius: 10px;
+    transition: all 700ms ease;
+    position: relative;
+
+}
+
+img.AttributeImg {
+    max-width: 100%;
+    margin-top: 30px;
+    position: absolute;
+    left: calc(0%);
+    clip: rect(0, 200px, 170px, 0);
+}
+
+h4.AttributeHeader {
+    position: absolute;
+    top: -20px;
+    left: 10px;
+}
+
+
+.UserCollectible-grid-item:hover {
+    background-color: bisque;
+    margin: auto;
+    width: 200px;
+    height: 200px;
+    font-size: 18px;
+    text-align: center;
+    transform: scale(1.1) perspective(1px);
+    transition: all 700ms ease;
+}
+
+/*
 .UserCollectible-grid-container {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
@@ -29,7 +75,7 @@
     transition: all 700ms ease;
 }
 
-
+*/
 /*
 .searchbardiv{
     display: flex;

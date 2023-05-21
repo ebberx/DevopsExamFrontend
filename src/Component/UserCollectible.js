@@ -9,14 +9,10 @@ function UserCollectible() {
     const {id} = useParams();
     const [filteredCollectionArray, setFilterCollectionArray] = useState();
 
-
-
     const dosearch = (event) => {
         let value = {
             attributevalue: event.target.value
         }
-
-
         let filteredArray = collectionArray.filter((elem) => {
             for (let i = 0; i < elem.length; i++) {
                 if(elem[i].attributevalue.includes(value.attributevalue)){
@@ -26,8 +22,6 @@ function UserCollectible() {
             return false;
 
             }, value)
-
-
         if(event.target.value.length !== 0) {
             setFilterCollectionArray(filteredArray)
         }
@@ -92,10 +86,14 @@ function UserCollectible() {
                 <div key={index} className="UserCollectible-grid-item">
                     {element.map((e, idx) => (
                     <div key={idx}>
-                        {e.attributename}
-                        <br/>
-                        {e.attributevalue}
-                        {e.attributevalue !== "" ? (<img src={e.attributevalue} alt="" style={{maxWidth: "100%", maxHeight: "100%", width: "100px", height: "110px"}}></img>) : ("no image attached")}
+
+
+                        {e.attributename == "Image" ?
+                            e.attributevalue !== "" ?
+                                ( <img src={e.attributevalue} className="AttributeImg" alt=""></img> )
+                                : ("Error: No image")
+                            : (<h4 className="AttributeHeader">{e.attributevalue}</h4>)
+                        }
                     </div>
                 ))}
                 </div>
