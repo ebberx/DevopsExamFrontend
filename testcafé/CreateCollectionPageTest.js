@@ -41,7 +41,7 @@ test("testing creating a collection", async t =>{
 
     const dialoghistory = await t.getNativeDialogHistory();
 
-    expect(dialoghistory.length).toBeGreaterThan(0)
+    await t.expect(dialoghistory.length).greaterThan(0)
 
     await t
         .expect(dialoghistory[0].type).eql('alert')
