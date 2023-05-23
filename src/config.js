@@ -1,6 +1,6 @@
 
 
 function GetBackendEndpoint() {
-    return "http://10.176.88.60:5001";
+    return "http://collectionkeepers-backend.herokuapp.com";
 }
 export default GetBackendEndpoint;

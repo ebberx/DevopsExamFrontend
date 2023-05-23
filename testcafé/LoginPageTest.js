@@ -24,7 +24,7 @@ test("clicking the login button with existing account details, and checking if t
         const url = await ClientFunction(() => window.location.href);
 
     await t
-        .expect(url()).eql(GetBackendEndpoint() + '/overview')
+        .expect(url()).eql("http://localhost:3000" + '/overview')
 
 })
 
