@@ -18,7 +18,7 @@ function CreateCollectionPage() {
             body: JSON.stringify({ flduserId: userID, fldCollectionName: collectionname, fldCollectionDescription: description, fldCollectionThumbnail: imageid, fldIsPrivate: false })
         };
         let collectionid = -1;
-        fetch(GetBackendEndpoint() + '/api/Collections/CreateCollection', createCollectionData)
+        await fetch(GetBackendEndpoint() + '/api/Collections/CreateCollection', createCollectionData)
             .then(response=>response.text())
             .then(async data => {
                 // Check if returned data is a number by checking if it is finite
