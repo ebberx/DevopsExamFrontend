@@ -57,6 +57,6 @@ test("clicking the register button and checking if the page redirects to /regist
     const url = await ClientFunction(() => window.location.href);
 
     await t
-        .expect(url()).eql(GetBackendEndpoint() + '/register')
+        .expect(url()).eql("http://localhost:3000" + '/register')
 
 })

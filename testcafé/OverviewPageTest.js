@@ -19,5 +19,5 @@ test("clicking the add collection button", async t =>{
         .click(buttonclick)
         const url = await ClientFunction(() => window.location.href);
     await t
-        .expect(url()).eql("http://localhost:3000" + '/overview/create')
+        .expect(url()).eql("http://localhost:3000" + '/collection/create')
 })
