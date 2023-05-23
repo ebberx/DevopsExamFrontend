@@ -56,16 +56,16 @@ function LoginPage() {
         <div className="LoginPage">
 
             <form>
-                <input id="username" type="text" value={email} onChange={(event) => setEmail(event.target.value)} placeholder="Email"></input>
-                <input id="password" type="password" value={password} onChange={(event) => setPassword(event.target.value)} placeholder="Password"></input>
+                <input data-testid="username" id="username" type="text" value={email} onChange={(event) => setEmail(event.target.value)} placeholder="Email"></input>
+                <input data-testid="password" id="password" type="password" value={password} onChange={(event) => setPassword(event.target.value)} placeholder="Password"></input>
             </form>
 
             <a href="/#">
-                <button id="btnLogin" onClick={Login}>Login</button>
+                <button data-testid="btnLogin" id="btnLogin" onClick={Login}>Login</button>
             </a>
             <hr/>
             Don't have an account?
-            <a id = "register" href="/register">Register here</a>
+            <a data-testid="register" id="register" href="/register">Register here</a>
         </div>
     );
 }
