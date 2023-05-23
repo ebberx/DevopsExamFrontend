@@ -3,12 +3,8 @@ import GetBackendEndpoint from "../src/config.js";
 
 fixture("testing the login page").page(GetBackendEndpoint())
 
-const loginclick = Selector('#btnLogin')
-const emailinput = Selector('#username')
-const passwordinput = Selector('#password')
-const registerclick = Selector('register')
-
 test("testing input fields to see if they are writable", async t =>{
+    const emailinput = Selector('#username')
 
     await t
         .typeText(emailinput, 'test')
@@ -16,6 +12,9 @@ test("testing input fields to see if they are writable", async t =>{
 })
 
 test("clicking the login button with existing account details, and checking if the page redirects to /overview", async t =>{
+    const emailinput = await Selector('#username')
+    const passwordinput = await Selector('#password')
+    const loginclick = await Selector('#btnLogin')
 
     await t
         .typeText(emailinput, 'tcggmeister@gmail.com')
@@ -30,6 +29,9 @@ test("clicking the login button with existing account details, and checking if t
 })
 
 test("clicking the login button with wrong password to see if wrong login popup appears", async t =>{
+    const emailinput = await Selector('#username')
+    const passwordinput = await Selector('#password')
+    const loginclick = await Selector('#btnLogin')
 
     await t
         .typeText(emailinput, 'tcggmeister@gmail.com')
@@ -47,6 +49,7 @@ test("clicking the login button with wrong password to see if wrong login popup 
 })
 
 test("clicking the register button and checking if the page redirects to /register", async t =>{
+    const registerclick = await Selector('register')
 
     await t
         .setNativeDialogHandler(() => true)

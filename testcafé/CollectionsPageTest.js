@@ -3,10 +3,10 @@ import GetBackendEndpoint from "../src/config.js";
 
 fixture("testing the collection page").page(GetBackendEndpoint())
 
-const addcollectionclick = Selector('btnAddCollection')
-const searchbarinput = Selector('searchbar')
 
 test("clicking the add collection button", async t =>{
+    const addcollectionclick = await Selector('btnAddCollection')
+
     await t
         .click(addcollectionclick)
     const url = await ClientFunction(() => window.location.href);
@@ -16,6 +16,7 @@ test("clicking the add collection button", async t =>{
 })
 
 test("testing input fields to see if they are writable", async t =>{
+    const searchbarinput = await Selector('searchbar')
 
     await t
         .typeText(searchbarinput, 'test')

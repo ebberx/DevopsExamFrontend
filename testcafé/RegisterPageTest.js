@@ -3,12 +3,10 @@ import GetBackendEndpoint from "../src/config.js";
 
 fixture("testing the register page").page(GetBackendEndpoint() + '/register')
 
-const usernameinput = Selector('#username')
-const passwordinput = Selector('#password')
-const emailinput = Selector('#email')
-const registerclick = Selector('#btnRegister')
-
 test("testing input fields", async t =>{
+    const usernameinput = await Selector('#username')
+    const passwordinput = await Selector('#password')
+    const emailinput = await Selector('#email')
 
     await t
         .typeText(usernameinput, 'testicus chadicus')
@@ -21,6 +19,10 @@ test("testing input fields", async t =>{
 })
 
 test("clicking the register button", async t =>{
+    const usernameinput = await Selector('#username')
+    const passwordinput = await Selector('#password')
+    const emailinput = await Selector('#email')
+    const registerclick = await Selector('#btnRegister')
 
     await t
         .typeText(usernameinput, 'testicuschadicus')
@@ -40,6 +42,11 @@ test("clicking the register button", async t =>{
 })
 
 test("writing a bad email", async t =>{
+    const usernameinput = await Selector('#username')
+    const passwordinput = await Selector('#password')
+    const emailinput = await Selector('#email')
+    const registerclick = await Selector('#btnRegister')
+
     await t
         .typeText(usernameinput, 'testmanx')
         .typeText(passwordinput, 'guhh')
