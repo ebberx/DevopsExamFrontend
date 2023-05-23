@@ -1,0 +1,32 @@
+$ git push heroku master
+Enumerating objects: 287, done.
+Counting objects: 100% (287/287), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (255/255), done.
+Writing objects: 100% (260/260), 31.93 KiB | 3.55 MiB/s, done.
+Total 260 (delta 190), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (190/190), completed with 17 local objects.
+remote: Updated 52 paths from bc42a64
+remote: Compressing source files... done.
+remote: Building source:
+remote:
+remote: -----> Building on the Heroku-22 stack
+remote: -----> Using buildpack: heroku/nodejs
+remote: -----> Node.js app detected
+remote:
+remote: -----> Creating runtime environment
+remote:
+remote: -----> Build succeeded!
+remote: -----> Discovering process types
+remote:        Procfile declares types     -> (none)
+remote:        Default types for buildpack -> web
+remote:
+remote: -----> Compressing...
+remote:        Done: 105.3M
+remote: -----> Launching...
+remote:        Released v9
+remote:        https://collectionkeepers-frontend.herokuapp.com/ deployed to Heroku
+remote:
+remote: Verifying deploy... done.
+To https://git.heroku.com/collectionkeepers-frontend.git
+   73c9b29..54a4ac1  master -> master
