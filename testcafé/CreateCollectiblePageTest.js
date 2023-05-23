@@ -7,9 +7,9 @@ import GetBackendEndpoint from "../src/config.js";
 fixture("testing the create collectible page").page(GetBackendEndpoint() + "/collection/6/add")
 
 
-const btncreateclick = await Selector('btncreate')
-const attributenameinput = await Selector('Attributename')
-const imageurlinput = await Selector('image')
+const btncreateclick = Selector('btncreate')
+const attributenameinput = Selector('Attributename')
+const imageurlinput = Selector('image')
 
 test("testing input fields to see if they are writable", async t =>{
 

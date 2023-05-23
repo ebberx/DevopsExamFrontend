@@ -3,10 +3,10 @@ import GetBackendEndpoint from "../src/config.js";
 
 fixture("testing the register page").page(GetBackendEndpoint() + '/register')
 
-const usernameinput = await Selector('#username')
-const passwordinput = await Selector('#password')
-const emailinput = await Selector('#email')
-const registerclick = await Selector('#btnRegister')
+const usernameinput = Selector('#username')
+const passwordinput = Selector('#password')
+const emailinput = Selector('#email')
+const registerclick = Selector('#btnRegister')
 
 test("testing input fields", async t =>{
 

@@ -3,8 +3,8 @@ import GetBackendEndpoint from "../src/config.js";
 
 fixture("testing the collection page").page(GetBackendEndpoint())
 
-const addcollectionclick = await Selector('btnAddCollection')
-const searchbarinput = await Selector('searchbar')
+const addcollectionclick = Selector('btnAddCollection')
+const searchbarinput = Selector('searchbar')
 
 test("clicking the add collection button", async t =>{
     await t
