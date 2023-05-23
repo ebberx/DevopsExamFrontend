@@ -1,6 +1,7 @@
 import {ClientFunction, Selector} from 'testcafe';
 import GetBackendEndpoint from "../src/config.js";
 import {wait} from "@testing-library/user-event/dist/utils/index.js";
+import * as assert from "assert";
 
 const setLocalStorageItem = ClientFunction((key, value) => window.localStorage.setItem(key, value));
 
@@ -32,7 +33,6 @@ test("testing creating a collection", async t =>{
     const createclick = await Selector('#btncreate')
 
     await t
-
         .typeText(nameinput, 'test')
         .typeText(descriptioninput, 'what a test')
         .typeText(urlinput, 'https://i.imgur.com/kaI2iEj.jpeg')
@@ -41,8 +41,9 @@ test("testing creating a collection", async t =>{
 
     const dialoghistory = await t.getNativeDialogHistory();
 
+    expect(dialoghistory.length).toBeGreaterThan(0)
+
     await t
-        .wait(1000)
         .expect(dialoghistory[0].type).eql('alert')
         .expect(dialoghistory[0].text).eql('Successfully added collection!')
 

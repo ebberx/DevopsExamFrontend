@@ -36,7 +36,6 @@ test("clicking the login button with wrong password to see if wrong login popup 
     await t
         .typeText(emailinput, 'tcggmeister@gmail.com')
         .typeText(passwordinput, 'a')
-        .setNativeDialogHandler(() => true)
         .setNativeDialogHandler(()=> true)
         .click(loginclick)
 
