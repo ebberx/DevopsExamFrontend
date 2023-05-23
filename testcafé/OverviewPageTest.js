@@ -1,5 +1,4 @@
 import { Selector } from 'testcafe';
-import {click} from "@testing-library/user-event/dist/click.js";
 import { ClientFunction } from 'testcafe';
 import GetBackendEndpoint from "../src/config.js";
 
@@ -12,16 +11,11 @@ test("testing input fields", async t =>{
         .expect(searchinput.value).eql('test')
 })
 
-
-
 test("clicking the add collection button", async t =>{
-    const buttonclick = await Selector('#createcolllectionlink')
-
+    const buttonclick = await Selector('#btnAddCollection')
     await t
         .click(buttonclick)
         const url = await ClientFunction(() => window.location.href);
-
     await t
         .expect(url()).eql(GetBackendEndpoint() + '/overview/create')
-
 })
