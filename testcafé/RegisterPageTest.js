@@ -1,7 +1,7 @@
 import { Selector } from 'testcafe';
 import GetBackendEndpoint from "../src/config.js";
 
-fixture("testing the register page").page(GetBackendEndpoint() + '/register')
+fixture("testing the register page").page("http://localhost:3000" + '/register')
 
 test("testing input fields", async t =>{
     const usernameinput = await Selector('#username')

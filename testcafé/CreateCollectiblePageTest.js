@@ -4,7 +4,7 @@ import GetBackendEndpoint from "../src/config.js";
 
 //need to make sure it loads some test users collections and that it has the assigned collectionid
 
-fixture("testing the create collectible page").page(GetBackendEndpoint() + "/collection/6/add")
+fixture("testing the create collectible page").page("http://localhost:3000" + "/collection/6/add")
 
 test("testing input fields to see if they are writable", async t =>{
     const attributenameinput = await Selector('Attributename')

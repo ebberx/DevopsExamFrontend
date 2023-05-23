@@ -1,7 +1,7 @@
 import {ClientFunction, Selector} from 'testcafe';
 import GetBackendEndpoint from "../src/config.js";
 
-fixture("testing the login page").page(GetBackendEndpoint())
+fixture("testing the login page").page("http://localhost:3000")
 
 test("testing input fields to see if they are writable", async t =>{
     const emailinput = Selector('#username')

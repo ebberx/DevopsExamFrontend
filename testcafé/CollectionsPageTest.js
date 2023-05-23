@@ -1,7 +1,7 @@
 import {ClientFunction, Selector} from 'testcafe';
 import GetBackendEndpoint from "../src/config.js";
 
-fixture("testing the collection page").page(GetBackendEndpoint())
+fixture("testing the collection page").page("http://localhost:3000")
 
 
 test("clicking the add collection button", async t =>{
