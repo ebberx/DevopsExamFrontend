@@ -3,23 +3,40 @@ import Navigation from "../Navigation.js";
 //import {useParams} from "react-router-dom";
 import {useState} from "react";
 import GetBackendEndpoint from "../config.js";
+import {useParams} from "react-router-dom";
 
 function CreateCollectiblePage() {
     const [attributename, setattributename] = useState("");
     const [imageid, setimageid] = useState("");
-    //const {id} = useParams();
+    const {id} = useParams();
 
     const AddCollectible = async () => {
-        const postAttributeData = {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json', "Access-Control-Allow-Headers": "*", "Access-Control-Allow-Origin": "*",  "Access-Control-Allow-Methods": "*" },
-            body: JSON.stringify({ })
-        };
-        let collectionid = -1;
-        fetch(GetBackendEndpoint() + '/api/AttributeValues/PostAttributeValue', postAttributeData)
-            .then(response=>response.text())
-            .then(data => {});
 
+        const getAttributesInCollectionData = {
+            method: 'GET',
+            headers: { 'Content-Type': 'application/json', "Access-Control-Allow-Headers": "*", "Access-Control-Allow-Origin": "*",  "Access-Control-Allow-Methods": "*" }
+        };
+        fetch(GetBackendEndpoint() + '/api/Attribute/GetAllAttributesInCollection/' + id, getAttributesInCollectionData)
+            .then(response=>response.json())
+            .then(data => {
+                const postAttributeData = {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json', "Access-Control-Allow-Headers": "*", "Access-Control-Allow-Origin": "*",  "Access-Control-Allow-Methods": "*" },
+                    body: JSON.stringify([
+                        {
+                            fldAttributeId: data[0].fldAttributeId ,
+                            fldValue: attributename
+                        }, {
+                            fldAttributeId: data[1].fldAttributeId ,
+                            fldValue: imageid
+                    }])
+                };
+                fetch(GetBackendEndpoint() + '/api/AttributeValues/PostAttributeValue', postAttributeData)
+                    .then(response=>response.text())
+                    .then(data => {
+                        console.log(data)
+                    });
+            });
     }
 
     return (

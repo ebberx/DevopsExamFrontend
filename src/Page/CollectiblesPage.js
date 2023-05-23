@@ -5,7 +5,6 @@ import {Link, useParams} from "react-router-dom";
 
 
 function CollectiblesPage() {
-    const elements = document.getElementsByClassName("grid-item");
     const {id} = useParams();
 
     return (

@@ -88,7 +88,7 @@ function UserCollectible() {
                     <div key={idx}>
 
 
-                        {e.attributename == "Image" ?
+                        {e.attributename === "Image" ?
                             e.attributevalue !== "" ?
                                 ( <img src={e.attributevalue} className="AttributeImg" alt=""></img> )
                                 : ("Error: No image")

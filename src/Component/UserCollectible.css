@@ -1,4 +1,7 @@
 .UserCollectible-grid-container {
+    position: absolute;
+    left: calc(100%/2 - (1325px/2));
+
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     row-gap: 25px;
@@ -15,7 +18,6 @@
     border-radius: 10px;
     transition: all 700ms ease;
     position: relative;
-
 }
 
 img.AttributeImg {
@@ -24,6 +26,7 @@ img.AttributeImg {
     position: absolute;
     left: calc(0%);
     clip: rect(0, 200px, 170px, 0);
+    clip-path: inset(0% 0% 0% 0% round 10px);
 }
 
 h4.AttributeHeader {
