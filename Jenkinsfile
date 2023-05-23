@@ -13,6 +13,11 @@ pipeline {
 			        sh 'npm install'
                     sh 'npm run build'
                 }
+				// Deploy the docker container so that is ready for testing later
+				catchError(buildResult: 'SUCCESS', stageResult: 'SUCCESS') {
+                    sh "docker kill \$(docker ps -qf expose=3000)"
+                }
+                sh "docker run --rm -p 3000:3000 -d ckfrontend"
 			}
 		}
 
@@ -33,10 +38,6 @@ pipeline {
                        // optional, default is none
                        failingTarget: [methodCoverage: 0, conditionalCoverage: 0, statementCoverage: 0]
                 )
-                catchError(buildResult: 'SUCCESS', stageResult: 'SUCCESS') {
-                    sh "docker kill \$(docker ps -qf expose=3000)"
-                }
-                sh "docker run --rm -p 3000:3000 -d ckfrontend"
                 sh 'testcafe "chromium:headless" testcafé/CreateCollectionPageTest.js testcafé/LoginPageTest.js testcafé/OverviewPageTest.js testcafé/RegisterPageTest.js'
                 sh 'k6 run k6/loadtest.js'
             }
