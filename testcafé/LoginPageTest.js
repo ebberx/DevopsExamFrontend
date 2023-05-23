@@ -3,10 +3,10 @@ import GetBackendEndpoint from "../src/config.js";
 
 fixture("testing the login page").page(GetBackendEndpoint())
 
-const loginclick = await Selector('#btnLogin')
-const emailinput = await Selector('#username')
-const passwordinput = await Selector('#password')
-const registerclick = await Selector('register')
+const loginclick = Selector('#btnLogin')
+const emailinput = Selector('#username')
+const passwordinput = Selector('#password')
+const registerclick = Selector('register')
 
 test("testing input fields to see if they are writable", async t =>{
 
