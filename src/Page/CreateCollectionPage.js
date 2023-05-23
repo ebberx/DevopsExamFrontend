@@ -20,7 +20,7 @@ function CreateCollectionPage() {
         let collectionid = -1;
         fetch(GetBackendEndpoint() + '/api/Collections/CreateCollection', createCollectionData)
             .then(response=>response.text())
-            .then(data => {
+            .then(async data => {
                 // Check if returned data is a number by checking if it is finite
                 if(Number.isFinite(Number(data))) {
                     collectionid = Number(data);
@@ -35,7 +35,7 @@ function CreateCollectionPage() {
                     headers: { 'Content-Type': 'application/json', "Access-Control-Allow-Headers": "*", "Access-Control-Allow-Origin": "*", "Access-Control-Allow-Methods": "*" },
                     body: JSON.stringify({ fldCollectionId: collectionid, fldAttributeName: "Name" })
                 };
-                fetch(GetBackendEndpoint() + '/api/Attribute/CreateAttribute/', attributeNameData)
+                await fetch(GetBackendEndpoint() + '/api/Attribute/CreateAttribute/', attributeNameData)
                     .then(response=>response.text())
                     .then(data => { console.log(data); });
                 const attributeImageData = {
@@ -43,7 +43,7 @@ function CreateCollectionPage() {
                     headers: { 'Content-Type': 'application/json', "Access-Control-Allow-Headers": "*", "Access-Control-Allow-Origin": "*", "Access-Control-Allow-Methods": "*" },
                     body: JSON.stringify({ fldCollectionId: collectionid, fldAttributeName: "Image" })
                 };
-                fetch(GetBackendEndpoint() + '/api/Attribute/CreateAttribute/', attributeImageData)
+                await fetch(GetBackendEndpoint() + '/api/Attribute/CreateAttribute/', attributeImageData)
                     .then(response=>response.text())
                     .then(data => {
                         console.log(data)
