@@ -1,9 +1,6 @@
 import {ClientFunction, Selector} from 'testcafe';
-import GetBackendEndpoint from "../src/config.js";
-import {wait} from "@testing-library/user-event/dist/utils/index.js";
-import * as assert from "assert";
 
-const setLocalStorageItem = ClientFunction((key, value) => window.localStorage.setItem(key, value));
+const setLocalStorageItem = ClientFunction(function (key, value){ localStorage.setItem(key, value) });
 
 fixture("testing the create collection page").page("http://localhost:3000" + "/collection/create").beforeEach(async t =>{
     await setLocalStorageItem("UserID", "2")
