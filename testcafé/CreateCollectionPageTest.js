@@ -43,7 +43,7 @@ test("testing creating a collection", async t =>{
 
     await t
         .expect(dialoghistory[0].type).eql('alert')
-        .expect(dialoghistory[0].text).eql('Successfully added collection!')
+        .expect(dialoghistory[0].text).eql('Successfully created a new collection!')
 
 })
 
