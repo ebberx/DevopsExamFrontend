@@ -3,7 +3,7 @@ import {fireEvent, render, screen} from '@testing-library/react';
 import CreateCollectiblePage from "../Page/CreateCollectiblePage.js";
 import {createMemoryRouter, RouterProvider} from "react-router-dom";
 
-describe('CreateCollectionPage', () => {
+describe('CreateCollectiblePage', () => {
     it('Check if page renders correctly', () => {
         const routes = [{
             path: '/collection/:id/add',

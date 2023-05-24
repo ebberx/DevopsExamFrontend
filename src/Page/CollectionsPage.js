@@ -12,7 +12,7 @@ function CollectionsPage() {
             <div id="CollectionsBody">
                 <Navigation />
                 <Link to="/collection/create">
-                    <button id="btnAddCollection">Add Collection</button>
+                    <button id="btnAddCollection" data-testid="btnAddCollection">Add Collection</button>
                 </Link>
             </div>
             <UserCollection/>

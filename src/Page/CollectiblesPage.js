@@ -12,7 +12,7 @@ function CollectiblesPage() {
             <div className="searchbardiv">
                 <Navigation />
                 <Link to={"/collection/"+id+"/add"}>
-                    <button id="btnAddCollection">Add Collectible</button>
+                    <button id="btnAddCollection" data-testid="btnAddCollection">Add Collectible</button>
                 </Link>
             </div>
             <UserCollectible/>
