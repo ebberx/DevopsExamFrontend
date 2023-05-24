@@ -1,5 +1,5 @@
 import React from 'react';
-import {getByTestId, fireEvent, render, screen} from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import LoginPage from "../Page/LoginPage.js";
 
 describe('LoginPage', () => {

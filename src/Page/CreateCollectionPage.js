@@ -59,9 +59,9 @@ function CreateCollectionPage() {
         <div className="CreateCollectionPage">
             <Navigation />
 
-            <input id="collectionname" type="text" placeholder="Collection Name"  value={collectionname} onChange={(event) => setcollectionname(event.target.value)}/>
-            <input id="collectiondescription" type="text" placeholder="Description"  value={description} onChange={(event) => setdescription(event.target.value)}/>
-            <input id="collectionimageurl" type="text" placeholder="Image url" value={imageid} onChange={(event) => setimageid(event.target.value)}/>
+            <input id="collectionname" data-testid="collectionname" type="text" placeholder="Collection Name"  value={collectionname} onChange={(event) => setcollectionname(event.target.value)}/>
+            <input id="collectiondescription" data-testid="collectiondescription" type="text" placeholder="Description"  value={description} onChange={(event) => setdescription(event.target.value)}/>
+            <input id="collectionimageurl" data-testid="collectionimageurl" type="text" placeholder="Image url" value={imageid} onChange={(event) => setimageid(event.target.value)}/>
 
             <button id="btncreate" onClick={CreateCollection}>Create</button>
         </div>
