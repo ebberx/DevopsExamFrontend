@@ -37,18 +37,20 @@ function CreateCollectionPage() {
                 };
                 await fetch(GetBackendEndpoint() + '/api/Attribute/CreateAttribute/', attributeNameData)
                     .then(response=>response.text())
-                    .then(data => { console.log(data); });
-                const attributeImageData = {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json', "Access-Control-Allow-Headers": "*", "Access-Control-Allow-Origin": "*", "Access-Control-Allow-Methods": "*" },
-                    body: JSON.stringify({ fldCollectionId: collectionid, fldAttributeName: "Image" })
-                };
-                await fetch(GetBackendEndpoint() + '/api/Attribute/CreateAttribute/', attributeImageData)
-                    .then(response=>response.text())
-                    .then(data => {
-                        console.log(data)
-                        alert("Successfully created a new collection!")
-                        window.location.href = "/overview"
+                    .then(async data => {
+                        console.log(data);
+                        const attributeImageData = {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json', "Access-Control-Allow-Headers": "*", "Access-Control-Allow-Origin": "*", "Access-Control-Allow-Methods": "*" },
+                            body: JSON.stringify({ fldCollectionId: collectionid, fldAttributeName: "Image" })
+                        };
+                        await fetch(GetBackendEndpoint() + '/api/Attribute/CreateAttribute/', attributeImageData)
+                            .then(response=>response.text())
+                            .then(data => {
+                                console.log(data)
+                                alert("Successfully created a new collection!")
+                                window.location.href = "/overview"
+                            });
                     });
             });
     }

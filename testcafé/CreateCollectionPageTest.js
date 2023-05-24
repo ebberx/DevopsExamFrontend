@@ -35,6 +35,7 @@ test("testing creating a collection", async t =>{
         .typeText(urlinput, 'https://i.imgur.com/kaI2iEj.jpeg')
         .setNativeDialogHandler(() => true)
         .click(createclick)
+        .wait(5000)
 
     const dialoghistory = await t.getNativeDialogHistory();
 
