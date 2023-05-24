@@ -48,7 +48,7 @@ test("clicking the login button with wrong password to see if wrong login popup 
 })
 
 test("clicking the register button and checking if the page redirects to /register", async t =>{
-    const registerclick = await Selector('register')
+    const registerclick = await Selector('#register')
 
     await t
         .setNativeDialogHandler(() => true)
